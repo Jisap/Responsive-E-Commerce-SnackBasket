@@ -193,8 +193,9 @@ const BottomNavbar = () => {
               link.dropdown
                 ? (
                   <div key={link.label} className="flex flex-col">
+                    {/* Dropdown Header */}
                     <button 
-                      className="flex justify-between items-center w-full px-2 py-2 font-medium rounded-md hover:bg-gray-"
+                      className="flex justify-between items-center w-full px-2 py-2 font-medium rounded-md hover:bg-gray-100"
                       onClick={() => toggleDropdown(link.label)}
                     >
                       {link.label} {" "}
@@ -206,10 +207,11 @@ const BottomNavbar = () => {
                       ></i>
                     </button>
 
+                    {/* Dropdown Content */}
                     <div
                       className={`
                         overflow-hidden transition-all duration-500
-                        ${openDropdowns[link.label] ? "max-w-60 mt-1" : "max-h-0"}
+                        ${openDropdowns[link.label] ? "max-h-60 mt-1" : "max-h-0"}
                       `}
                     >
                       <div
@@ -224,7 +226,7 @@ const BottomNavbar = () => {
                                   pathname: "/UI-Components/Shop",
                                   query: {}
                                 }}
-                                className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
+                                className="block px-4 py-2 rounded-md bg-white border border-prim-light hover:bg-gray-100 transition-all"
                               >
                                 {item.label}
                               </Link>
@@ -236,7 +238,7 @@ const BottomNavbar = () => {
                                     pathname: "/UI-Components/Shop",
                                     query: {}
                                   }}
-                                  className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
+                                   className="block px-4 py-2 rounded-md bg-white border border-prim-light hover:bg-gray-100 transition-all"
                                 >
                                   {item.label}
                                 </Link>
@@ -244,7 +246,7 @@ const BottomNavbar = () => {
                                 <Link
                                   key={item.label}
                                   href={item.href}
-                                  className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
+                                  className="block px-4 py-2 rounded-md bg-white border border-prim-light hover:bg-gray-100 transition-all"
                                 >
                                   {item.label}
                                 </Link>
