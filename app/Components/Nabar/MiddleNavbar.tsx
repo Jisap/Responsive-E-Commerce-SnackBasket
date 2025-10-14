@@ -25,6 +25,41 @@ const MiddleNavbar = () => {
           <button className="bg-prim text-white px-3 rounded-r cursor-pointer">
             <i className="bi bi-search"></i>
           </button>
+
+          {/* Location dropdown */}
+          <div className="hidden lg:flex text-sm ms-5 bg-white items-center ps-4 rounded-lg border border-gray-400">
+            <i className="bi bi-geo-alt text-lg text-prim"></i>
+            <select
+              name="location"
+              className="px-3 rounded-lg text-prim font-semibold focus:border-prim appearance-none cursor-pointer outline-none"
+              defaultValue="New York"
+            >
+              <option>New York</option>
+              <option>Los Angeles</option>
+              <option>Chicago</option>
+              <option>Houston</option>
+              <option>Phoenix</option>
+              <option>Philadelphia</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Whislist & Cart  */}
+        <div className="hidden lg:flex items-center space-x-6">
+          {/* Whislist */}
+          <Link href="#" className="relative">
+            <i className="bi bi-heart text-gray-600 text-xl hover:text-prim transition-all"></i>
+            <span className="absolute -top-2 -right-2 bg-prim text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+              1
+            </span>
+          </Link>
+          {/* Cart */}
+          <Link href="#" className="relative">
+            <i className="bi bi-cart text-gray-600 text-xl hover:text-prim transition-all"></i>
+            <span className="absolute -top-2 -right-2 bg-prim text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+              2
+            </span>
+          </Link>
         </div>
       </div>
     </div>
