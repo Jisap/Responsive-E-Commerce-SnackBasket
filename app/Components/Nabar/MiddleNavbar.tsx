@@ -13,7 +13,7 @@ const MiddleNavbar = () => {
         </Link>
 
         {/* Search */}
-        <div className="flex flex-1 ms-6 lg:mx-0 max-w-xl relative">
+        <div className="hidden lg:flex flex-1 ms-6 lg:mx-0 max-w-xl relative">
           <input 
             type="text" 
             placeholder="Search for a product or brand"
