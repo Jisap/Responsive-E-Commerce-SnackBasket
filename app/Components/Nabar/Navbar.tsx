@@ -1,4 +1,5 @@
 
+import BottomNavbar from './BottomNavbar'
 import MiddleNavbar from './MiddleNavbar'
 import TopNavbar from './TopNavbar'
 
@@ -7,6 +8,7 @@ const Navbar = () => {
     <>
       <TopNavbar />
       <MiddleNavbar />
+      <BottomNavbar />
     </>
   )
 }

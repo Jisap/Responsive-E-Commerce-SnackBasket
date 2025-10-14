@@ -42,6 +42,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <div className="h-[5000px]"></div>
       </body>
     </html>
   );
