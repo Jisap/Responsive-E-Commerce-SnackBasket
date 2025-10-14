@@ -145,8 +145,13 @@ const BottomNavbar = () => {
               )
           ))}
         </nav>
-      </div>
 
+        <button className="nav-button cursor-pointer font-bold bg-prim text-white p-3 hidden lg:flex">
+          <i className="bi bi-telephone pe-2 text-xl"></i> 91+ 123 123 123
+        </button>
+
+        {/* Mobile Nav header */}
+      </div>
     </div>
   )
 }
