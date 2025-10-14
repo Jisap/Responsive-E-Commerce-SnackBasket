@@ -151,7 +151,123 @@ const BottomNavbar = () => {
         </button>
 
         {/* Mobile Nav header */}
+        <div className="lg:hidden flex items-center justify-between gap-4 w-full">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-2xl focus:outline-none"
+          >
+            <div className="flex items-center gap-x-5">
+              <i className="ri-menu-line"></i>
+            </div>
+          </button>
+
+          <div className="flex lg:hidden items-center gap-x-6">
+            {/* Whislist */}
+            <Link href="#" className="relative">
+              <i className="bi bi-heart text-gray-600 text-xl hover:text-prim transition-all"></i>
+              <span className="absolute -top-2 -right-2 bg-prim text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                1
+              </span>
+            </Link>
+            {/* Cart */}
+            <Link href="#" className="relative">
+              <i className="bi bi-cart text-gray-600 text-xl hover:text-prim transition-all"></i>
+              <span className="absolute -top-2 -right-2 bg-prim text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                2
+              </span>
+            </Link>
+          </div>
+
+          <button className="nav-button cursor-pointer font-bold bg-prim text-white p-3">
+            <i className="bi bi-telephone pe-2 text-xl"></i> 91+ 123 123 123
+          </button>
+
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-200 shadow-md overflow-hidden transition-all duration-500">
+          <nav className="flex flex-col px-[4%] py-4 space-y-1">
+            {navLinks.map((link) => (
+              link.dropdown
+                ? (
+                  <div key={link.label} className="flex flex-col">
+                    <button 
+                      className="flex justify-between items-center w-full px-2 py-2 font-medium rounded-md hover:bg-gray-"
+                      onClick={() => toggleDropdown(link.label)}
+                    >
+                      {link.label} {" "}
+                      <i 
+                        className={`
+                          ri-arrow-down-s-line transition-transform
+                          ${openDropdowns[link.label] ? "rotate-180" : ""}
+                        `}
+                      ></i>
+                    </button>
+
+                    <div
+                      className={`
+                        overflow-hidden transition-all duration-500
+                        ${openDropdowns[link.label] ? "max-w-60 mt-1" : "max-h-0"}
+                      `}
+                    >
+                      <div
+                        className="flex flex-col bg-prim-light p-2 space-y-1"
+                      >
+                        {link.dropdown.map((item) =>
+                          item.label === "Shop Details"
+                            ? (
+                              <Link
+                                key={item.label}
+                                href={{
+                                  pathname: "/UI-Components/Shop",
+                                  query: {}
+                                }}
+                                className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
+                              >
+                                {item.label}
+                              </Link>
+                            ) : item.label === "Blog Details"
+                              ? (
+                                <Link
+                                  key={item.label}
+                                  href={{
+                                    pathname: "/UI-Components/Shop",
+                                    query: {}
+                                  }}
+                                  className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
+                                >
+                                  {item.label}
+                                </Link>
+                              ) : (
+                                <Link
+                                  key={item.label}
+                                  href={item.href}
+                                  className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
+                                >
+                                  {item.label}
+                                </Link>
+                              )
+                        )}
+                      </div>
+                    </div>
+
+                   
+                  </div>
+                ) : (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="block px-2 py-2 font-medium rounded-md"
+                  >
+                    {link.label}
+                  </Link>
+                )
+            ))}
+          </nav>
+        </div>
+      )}
     </div>
   )
 }
