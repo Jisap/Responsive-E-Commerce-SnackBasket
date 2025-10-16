@@ -70,6 +70,16 @@ const Category = () => {
                   className="transition-all duration-300"
                 />
               </div>
+
+              <div className="category-info my-2 flex flex-col justify-center items-center">
+                <h2 className="text-lg Unbounded hover:text-prim transition-all duration-300 text-center text-balance">
+                  {category.title}
+                </h2>
+
+                <p className="text-gray-500">
+                  {category.products}
+                </p>
+              </div>
             </div>
           </SwiperSlide>
         ))}
