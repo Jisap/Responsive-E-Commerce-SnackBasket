@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Index from "./UI-Components/Index";
 
 export default function Home() {
   return (
     <>
-      <h1 className="text-2xl text-red-500">Hello SnackBasket</h1>
+      <Index />
     </>
   );
 }
