@@ -220,16 +220,16 @@ const BottomNavbar = () => {
       {/* Floating Icons for Desktop */}
       <div
         className={`
-    fixed bottom-5 right-5 z-50 transition-all duration-300
-    ${isFixed ? "hidden lg:flex lg:gap-3" : "hidden"}
-  `}
+          fixed bottom-4 right-5 z-50 transition-all duration-300
+          ${isFixed ? "hidden lg:flex lg:gap-3" : "hidden"}
+        `}
       >
         {/* Wishlist */}
         <Link
           href="/UI-Components/Pages/whislist"
           className="relative bg-white p-3 rounded-full shadow-lg hover:bg-prim group"
         >
-          <i className="bi bi-heart text-gray-600 text-xl group-hover:text-white transition-all"></i>
+          <i className="bi bi-heart text-gray-600 text-lg group-hover:text-white transition-all"></i>
           {wishlistCount > 0 && (
             <span className="absolute -top-1 -right-1 bg-prim text-white w-5 h-5 flex items-center justify-center rounded-full text-xs">
               {wishlistCount}
@@ -241,7 +241,7 @@ const BottomNavbar = () => {
           href="/UI-Components/Pages/cart"
           className="relative bg-white p-3 rounded-full shadow-lg hover:bg-prim group"
         >
-          <i className="bi bi-cart text-gray-600 text-xl group-hover:text-white transition-all"></i>
+          <i className="bi bi-cart text-gray-600 text-lg group-hover:text-white transition-all"></i>
           {cartCount > 0 && (
             <span className="absolute -top-1 -right-1 bg-prim text-white w-5 h-5 flex items-center justify-center rounded-full text-xs">
               {cartCount}
