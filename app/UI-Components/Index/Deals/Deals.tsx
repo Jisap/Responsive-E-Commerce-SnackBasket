@@ -46,7 +46,7 @@ const Deals = () => {
   const handleAddToCart = (product: any) => {
     let cart = JSON.parse(localStorage.getItem("cart") || "[]"); // Obtener el carro de la sesión
 
-    const existingProduct = cart.fin((item: any) => item.Id === product.Id); // Comprobar si el producto ya existe en el carro
+    const existingProduct = cart.find((item: any) => item.Id === product.Id); // Comprobar si el producto ya existe en el carro
 
     if (existingProduct) {
       toast(`${product.title} is already in the cart!`, {
@@ -115,7 +115,7 @@ const Deals = () => {
                 <p className="my-2 text-gray-800 font-normal">
                   {deal.description}
                 </p>
-                
+
                 <button className="px-5 py-2 cursor-pointer rounded-full text-white bg-prim font-bold hover:bg-prim-light hover:text-prim transition-all duration-500">
                   Shop Now <i className="bi bi-cart3 ms-0 md:ms-3"></i>
                 </button>
