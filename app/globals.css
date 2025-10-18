@@ -198,3 +198,9 @@
   align-items: center;
 }
 
+.deals-wrap {
+  background-image: url("/deals-bg1.png");
+  background-position: center center;
+  background-size: cover;
+}
+
