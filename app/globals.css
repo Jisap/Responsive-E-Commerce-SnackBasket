@@ -156,6 +156,9 @@
   .hero-wrap h1 {
     font-size: 2.5rem;
   }
+  .category-info h2 {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width:575px) {
@@ -175,6 +178,10 @@
   .hero-wrap p {
     width: 100%;
   }
+  .banner-content {
+    font-size: 2.8rem;
+    line-height: 3.5rem;
+  }
 }
 
 .category-wrap:hover img {
@@ -190,3 +197,4 @@
   justify-content: center;
   align-items: center;
 }
+

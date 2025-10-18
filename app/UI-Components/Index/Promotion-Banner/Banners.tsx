@@ -34,7 +34,7 @@ const Banners = () => {
                 {banner.heading}
               </h2>
 
-              <button className="px-5 py-3 rounded-full text-white font-bold mt-5 bg-[var(--prim-color)] hover:bg-white hover:text-[var(--prim-color)] transition-all duration-300 cursor-pointer">
+              <button className="px-4 py-2 text-sm lg:px-5 lg:py-3 rounded-full text-white font-bold mt-3 lg:mt-5 bg-prim hover:bg-white hover:text-prim transition-all duration-300 cursor-pointer">
                 Shop Now <i className="bi bi-arrow-right ps-2"></i>
               </button>
             </div>
