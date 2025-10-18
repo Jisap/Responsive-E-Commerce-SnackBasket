@@ -24,6 +24,7 @@ interface ProductType {
 
 const MiddleNavbar = () => {
 
+  const [isNavFixed, setIsNavFixed] = useState(false);                 // Estado para saber si la barra inferior está fija
   const [cartCount, setCartCount] = useState(0);                       // Número de artículos en el carrito
   const [wishlistCount, setWishlistCount] = useState(0);               // Número de artículos en la lista de deseos
   const [searchTerm, setSearchTerm] = useState("");                    // Término de búsqueda
@@ -69,8 +70,27 @@ const MiddleNavbar = () => {
     };
   }, []);
 
+  // Se ejecuta para detectar el scroll y suavizar la aparición
+  useEffect(() => {
+    const handleScroll = () => {
+      // Usamos el mismo valor que en BottomNavbar para sincronizar el efecto
+      if (window.scrollY > 50) {
+        setIsNavFixed(true);
+      } else {
+        setIsNavFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="w-full bg-prim-light border-b border-gray-300 relative">
+    <div className={`w-full bg-prim-light border-b border-gray-300 relative transition-opacity duration-800 ${
+      isNavFixed ? "opacity-0 -z-10" : "opacity-100"
+    }`}>
       <div className="flex items-center justify-between py-5 px-[8%] lg:px-[12%]">
         {/* logo */}
         <Link href="/" className="text-3xl font-bold Merienda text-black">
