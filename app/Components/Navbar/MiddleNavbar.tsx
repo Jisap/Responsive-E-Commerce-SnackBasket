@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import BestDeals from "@/app/JsonData/BestDeals.json";
+import allProductsData from "@/app/JsonData/BestDeals.json";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
@@ -22,14 +22,16 @@ interface ProductType {
   ProductImage?: string;
 }
 
-const MiddleNavbar = () => {
+interface MiddleNavbarProps {
+  isFixed: boolean;
+  cartCount: number;
+  wishlistCount: number;
+}
 
-  const [isNavFixed, setIsNavFixed] = useState(false);                 // Estado para saber si la barra inferior está fija
-  const [cartCount, setCartCount] = useState(0);                       // Número de artículos en el carrito
-  const [wishlistCount, setWishlistCount] = useState(0);               // Número de artículos en la lista de deseos
+const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) => {
   const [searchTerm, setSearchTerm] = useState("");                    // Término de búsqueda
   const [result, setResult] = useState<ProductType[]>([]);             // Resultados de la búsqueda
-  const allProduct: ProductType[] = useMemo(() => [...BestDeals], []); // Memo de todos los productos
+  const allProduct: ProductType[] = useMemo(() => [...allProductsData], []); // Memo de todos los productos
 
   // Se ejecuta cuando searchTerm cambia
   useEffect(() => {
@@ -45,51 +47,9 @@ const MiddleNavbar = () => {
   }, [searchTerm, allProduct]);
 
 
-  // Se ejecuta una sola vez al cargar el componente
-  useEffect(() => {
-    // Función que carga los contadores de carrito y lista de deseos 
-    // desde el localStorage
-    const loadCounts = () => { 
-      const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
-      const wishlist: CartItem[] = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
-      const uniqueCart = new Set(cart.map((item) => item.Id));         // Crear un set único de los IDs de los artículos en el carrito
-      const uniqueWishlist = new Set(wishlist.map((item) => item.Id)); // Crear un set único de los IDs de los artículos en la lista de deseos
-
-
-      setCartCount(uniqueCart.size);                                   // size da el número de elementos en el set -> actualiza el contador de carrito
-      setWishlistCount(uniqueWishlist.size);                           // actualiza el contador de lista de deseos
-    };
-
-    loadCounts();
-
-    window.addEventListener("storageUpdate", loadCounts);             // Cuando en Deals.tsx se añade un pto lanza evento "storageUpdate" -> loadCounts se dispara y actualiza los contadores
-
-    return () => {
-      window.removeEventListener("storageUpdate", loadCounts);
-    };
-  }, []);
-
-  // Se ejecuta para detectar el scroll y suavizar la aparición
-  useEffect(() => {
-    const handleScroll = () => {
-      // Usamos el mismo valor que en BottomNavbar para sincronizar el efecto
-      if (window.scrollY > 50) {
-        setIsNavFixed(true);
-      } else {
-        setIsNavFixed(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div className={`w-full bg-prim-light border-b border-gray-300 relative transition-opacity duration-800 ${
-      isNavFixed ? "opacity-0 -z-10" : "opacity-100"
+    <div className={`w-full bg-prim-light border-b border-gray-300 relative transition-all duration-500 ease-in-out ${
+      isFixed ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
     }`}>
       <div className="flex items-center justify-between py-5 px-[8%] lg:px-[12%]">
         {/* logo */}

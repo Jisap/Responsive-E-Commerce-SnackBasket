@@ -1,11 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-type CartItem = {
-  Id: string | number;
-};
+import { useState } from "react";
 
 type NavLink = {
   label: string;
@@ -44,14 +40,16 @@ const navLinks: NavLink[] = [
   { label: "Contact Us", href: "/UI-Components/Pages/contact" },
 ]
 
-const BottomNavbar = () => {
+interface BottomNavbarProps {
+  isFixed: boolean;
+  cartCount: number;
+  wishlistCount: number;
+}
+
+const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) => {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({});
-  const [isFixed, setIsFixed] = useState(false);
-
-  const [cartCount, setCartCount] = useState(0);
-  const [wishlistCount, setWishlistCount] = useState(0);
 
   const toggleDropdown = (label: string) => {
     setOpenDropdowns((prevState) => ({
@@ -59,42 +57,6 @@ const BottomNavbar = () => {
       [label]: !prevState[label],
     }));
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const loadCounts = () => {
-      const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
-      const wishlist: CartItem[] = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
-      const uniqueCart = new Set(cart.map((item) => item.Id));
-      const uniqueWishlist = new Set(wishlist.map((item) => item.Id));
-
-      setCartCount(uniqueCart.size);
-      setWishlistCount(uniqueWishlist.size);
-    };
-
-    loadCounts();
-    window.addEventListener("storageUpdate", loadCounts);
-
-    return () => {
-      window.removeEventListener("storageUpdate", loadCounts);
-    };
-  }, []);
 
   return (
     <div
