@@ -10,6 +10,10 @@ type CartItem = {
 };
 
 const Navbar = () => {
+
+  // Centralizamos estas variables en el componente principal
+  // Esto permite que se actualicen en cualquier componente
+
   const [isFixed, setIsFixed] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
