@@ -127,7 +127,7 @@ const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) 
         {/* Whislist & Cart  */}
         <div className="hidden lg:flex items-center space-x-6">
           {/* Whislist */}
-          <Link href="#" className="relative">
+          <Link href="/UI-Components/Pages/wishlist" className="relative">
             <i className="bi bi-heart text-gray-600 text-xl hover:text-prim transition-all"></i>
             {wishlistCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-prim text-white w-5 h-5 flex items-center justify-center rounded-full text-xs">
