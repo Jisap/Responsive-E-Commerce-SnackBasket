@@ -75,7 +75,7 @@ const Cart = () => {
             <Link href="/" className="text-2xl Unbounded">
               Home &nbsp; -
             </Link>
-            <h2 className="Unbounded text-2xl text-[var(--prim-color)]">
+            <h2 className="Unbounded text-2xl text-prim">
               &nbsp; Cart
             </h2>
           </div>
@@ -94,7 +94,7 @@ const Cart = () => {
               <div className=" hidden md:flex gap-5">
                 <div className="overflow-x-auto">
                   <table className="min-w-full border border-gray-300 rounded">
-                    <thead className="bg-[var(--prim-light)]">
+                    <thead className="bg-prim-light">
                       <tr>
                         <th className="px-4 py-3 text-left">Product</th>
                         <th className="px-4 py-3 text-left">Price</th>
@@ -148,7 +148,7 @@ const Cart = () => {
                             <td className="px-4 py-3">
                               <button
                                 onClick={() => handleRemove(item.Id)}
-                                className=" w-full bg-red-500/5 text-red-700 px-4   py-2 rounded cursor-pointer">
+                                className=" w-full bg-red-500/5 text-red-700 px-4 py-2 rounded cursor-pointer">
                                 Remove
                               </button>
                             </td>
@@ -157,6 +157,134 @@ const Cart = () => {
                       })}
                     </tbody>
                   </table>
+                </div>
+
+                {/* Subtotal */}
+                <div className="w-full lg:w-1/2 sticky h-[100%] top-22 left-0">
+                  <div className="bg-prim-light p-5 rounded-lg shadow">
+                    <h2 className="text-xl font-semibold mb-4">
+                      Cart Total
+                    </h2>
+
+                    <div className="flex justify-between mb-2">
+                      <span className="Unbounded">Subtotal</span>
+                      <span className="Unbounded">${subTotal.toFixed(2)}</span>
+                    </div>
+
+                    <div className="flex justify-between mb-2">
+                      <span className="Unbounded">Estimated Delivery</span>
+                      <span className="Unbounded">Free</span>
+                    </div>
+
+                    <div className="flex justify-between mb-2">
+                      <span className="Unbounded">Estimated Taxes</span>
+                      <span className="Unbounded">
+                        USD {estimatedTaxes.toFixed(2)}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between font-bold border-t border-gray-400 pt-2 mb-10 text-xl">
+                      <span className="Unbounded">Total</span>
+                      <span className="Unbounded">
+                        ${(subTotal + estimatedTaxes).toFixed(2)}
+                      </span>
+                    </div>
+
+                    <button className="w-full py-3 cursor-pointer bg-[var(--prim-color)] text-white font-semibold rounded hover:bg-black transition">
+                      <Link href="/UI-Components/Pages/checkout">
+                        Proceed To Checkout
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Cards */}
+              <div className="grid grid-cols-1 gap-4 md:hidden">
+                {cartItems.map((item) => {
+                  const quantity = item.qty ?? 1;
+                  const priceNum = parseFloat(item.price.replace(/[^0-9.]+/g, "")) || 0;
+                  const itemSubTotal = priceNum * quantity;
+
+                  return (
+                    <div
+                      key={item.Id}
+                      className="border p-4 rounded flex flex-col gap-2"
+                    >
+                      <div className="flex items-center gap-4">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-20 h-20 object-contain rounded"
+                        />
+                        <div className="flex flex-col flex-1">
+                          <p className="font-medium">{item.title}</p>
+                          <p className="text-sm text-gray-500">{item.review}</p>
+                          <p className="font-semibold">{item.price}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-between items-center mt-2">
+                        <input
+                          type="number"
+                          min={1}
+                          value={quantity}
+                          onChange={(e) =>
+                            handleQtyChange(item.Id, parseInt(e.target.value))
+                          }
+                          className="w-20 border rounded px-1"
+                        />
+                        <span className="font-semibold">
+                          SubTotal: ${itemSubTotal.toFixed(2)}
+                        </span>
+                        <button
+                          onClick={() => handleRemove(item.Id)}
+                          className="  bg-red-500/5 text-red-700 px-4 py-2 rounded cursor-pointer"
+                        >
+                          X Remove
+                        </button>
+                      </div>
+                    </div>
+                  )
+                })}
+
+                {/* Mobile Subtotal */}
+                <div className="w-full lg:w-1/2 sticky h-[100%] top-22 left-0">
+                  <div className="bg-prim-light p-5 rounded-lg shadow">
+                    <h2 className="text-xl font-semibold mb-4">
+                      Cart Total
+                    </h2>
+
+                    <div className="flex justify-between mb-2">
+                      <span className="Unbounded">Subtotal</span>
+                      <span className="Unbounded">${subTotal.toFixed(2)}</span>
+                    </div>
+
+                    <div className="flex justify-between mb-2">
+                      <span className="Unbounded">Estimated Delivery</span>
+                      <span className="Unbounded">Free</span>
+                    </div>
+
+                    <div className="flex justify-between mb-2">
+                      <span className="Unbounded">Estimated Taxes</span>
+                      <span className="Unbounded">
+                        USD {estimatedTaxes.toFixed(2)}
+                      </span>
+                    </div>
+                    
+                    <div className="flex justify-between font-bold border-t border-gray-400 pt-2 mb-10 text-xl">
+                      <span className="Unbounded">Total</span>
+                      <span className="Unbounded">
+                        ${(subTotal + estimatedTaxes).toFixed(2)}
+                      </span>
+                    </div>
+
+                    <button className="w-full py-3 cursor-pointer bg-[var(--prim-color)] text-white font-semibold rounded hover:bg-black transition">
+                      <Link href="/UI-Components/Pages/checkout">
+                        Proceed To Checkout
+                      </Link>
+                    </button>
+                  </div>
                 </div>
               </div>
           </>
