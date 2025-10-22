@@ -5,6 +5,7 @@ import Banners from './Promotion-Banner/Banners'
 import Deals from './Deals/Deals'
 import Offers from '../Offers-Banner/Offers'
 import Recommended from './Recommended/Recommended'
+import HotDeals from './Hot-Deals/HotDeals'
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Deals />
       <Offers />
       <Recommended />
+      <HotDeals />
     </>
   )
 }
