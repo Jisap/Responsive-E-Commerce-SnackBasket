@@ -69,7 +69,7 @@ const Checkout = () => {
               <label htmlFor="newsCheck">Email me with news and offers</label>
             </div>
 
-            {/* Delivery type */}
+            {/* Delivery  */}
             <h5 className="mb-2 Unbounded text-2xl">Delivery</h5>
             <div className="mb-3 flex gap-4">
               <label className="flex items-center gap-1">
@@ -91,6 +91,120 @@ const Checkout = () => {
                 pickup in store
               </label>
             </div>
+
+            {deliveryOption === "ship" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+                <select className="md:w-60 w-40 border border-gray-300 rounded appearance-none px-2 py-2 md:col-span-2">
+                  <option>Germany</option>
+                  <option>France</option>
+                  <option>United States</option>
+                </select>
+
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded w-full p-2"
+                  placeholder="First Name (optional)"
+                />
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded w-full p-2"
+                  placeholder="Lat Name (optional)"
+                />
+              </div>
+            )}
+
+            {deliveryOption === "pickup" && (
+              <div className="my-4 p-3 border rounded bg-red-50 text-red-700">
+                <strong>No Stores Available with your item</strong>
+                <div>
+                  <Link href="#" className="underline">
+                    Ship to address
+                  </Link>{" "}
+                  instead
+                </div>
+              </div>
+            )}
+
+            {/* Delivery Address */}
+            <input
+              type="text"
+              className="border border-gray-300 rounded w-full p-2 mb-3"
+              placeholder="Address"
+            />
+            <input
+              type="text"
+              className="border border-gray-300 rounded w-full p-2 mb-3"
+              placeholder="Apartment, suite, etc. (optional)"
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+              <input
+                type="text"
+                className="border border-gray-300 rounded w-full p-2  "
+                placeholder="City"
+              />
+              <input
+                type="text"
+                className="border border-gray-300 rounded w-full p-2  "
+                placeholder="Postal Code (optional)"
+              />
+            </div>
+
+            <div className="mb-4">
+              <input type="checkbox" id="saveInfo" className="me-2" />
+              <label htmlFor="saveInfo">
+                Save this information for next time
+              </label>
+            </div>
+
+            {/* Shipping Method */}
+            <h5 className="mb-2 Unbounded text-2xl">Shipping Method</h5>
+            <div className="p-3 flex justify-between items-center border border-gray-300 rounded bg-blue-50">
+              <span>Standard</span>
+              <span className="text-green-600">Free</span>
+            </div>
+
+            {/* Payment */}
+            <h4 className="mt-5 mb-2 Unbounded text-2xl">Payment</h4>
+            <p className="text-gray-500 mb-3">
+              All transactions are secure and encrypted.
+            </p>
+
+            <div className="border border-gray-300 rounded p-3 mb-3">
+              <input
+                type="text"
+                className="border border-gray-300 rounded w-full p-2 mb-2"
+                placeholder="Card Number"
+              />
+
+              <div className="grid grid-cols-2 gap-2">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded w-full p-2 mb-2"
+                  placeholder="Expiration Date (MM/YY)"
+                />
+
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded w-full p-2 mb-2"
+                  placeholder="Security Code"
+                />
+              </div>
+
+              <input
+                type="text"
+                className="border border-gray-300 rounded w-full p-2 mb-2"
+                placeholder="Name on Card"
+              />
+            </div>
+
+            <button
+              type="submit"
+              onClick={handlePlaceOrder}
+              className="bg-prim hover:bg-prim-light text-white hover:text-prim translation-all duration-300 py-2 px- cursor-pointer rounded w-full"
+            >
+              Pay Now
+            </button>
           </div>
         </div>
       </div>
