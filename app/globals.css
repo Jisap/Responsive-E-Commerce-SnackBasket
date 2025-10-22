@@ -232,3 +232,8 @@
   opacity: 0.1;
 }
 
+.off-product {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
