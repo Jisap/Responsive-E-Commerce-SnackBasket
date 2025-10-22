@@ -206,6 +206,86 @@ const Checkout = () => {
               Pay Now
             </button>
           </div>
+
+          {/* Right Order Summary */}
+          <div className="lg:col-span-5 mt-10">
+            <div className="border border-gray-300 p-4 rounded shadow">
+              {/* Header */}
+              <h5 className="font-bold mb-3 flex items-center gap-2 Unbounded">
+                <i className="ri-shopping-cart-2-line text-prim"></i>{" "}
+                Cart Summery
+              </h5>
+
+              {cartItems.length === 0 ? (
+                <p className="text-gray-500">Your cart is Empty!</p>
+              ) : (
+                cartItems.map((item: CartItem) => {
+                  const priceNum = parseFloat(item.price.replace("$", "")) || 0;
+                  const quantity = item.qty ?? 1;
+                  return (
+                    <div
+                      key={item.Id}
+                      className="flex justify-between items-center border-b border-gray-300 py-3"
+                    >
+                      {/* Image and Info */}
+                      <div className="flex items-center">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-16 h-16 object-cover"
+                        />
+                        <div className="ml-3">
+                          <p className="Unbounded font-semibold">
+                            {item.title}
+                          </p>
+                          <p className="text-gray-500">
+                            ${(priceNum * quantity).toFixed(2)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+
+              {/* Summary */}
+              <div className="flex justify-between text-sm pt-2">
+                <span>Subtotal</span>
+                <span className="Unbounded">${totalPrice.toFixed(2)}</span>
+              </div>
+
+              <div className="flex justify-between text-sm pt-2">
+                <span>Shipping</span>
+                <span>Enter address</span>
+              </div>
+
+              <div className="flex justify-between text-sm pt-2">
+                <span>Estimated Tax</span>
+                <span className="Unbounded">${estimatedTax}</span>
+              </div>
+
+              <div className="flex justify-between text-sm pt-2">
+                <span>Total</span>
+                <span className="Unbounded">
+                  ${(totalPrice + parseFloat(estimatedTax)).toFixed(2)}
+                </span>
+              </div>
+
+              <button
+                type="submit"
+                onClick={handlePlaceOrder}
+                className="my-2 mt-4 bg-[var(--prim-color)] hover:bg-[var(--prim-light)] text-white hover:text-[var(--prim-color)] translation-all duration-300 py-2 px- cursor-pointer rounded w-full"
+              >
+                Pay Now
+              </button>
+              <Link
+                href="/UI-Components/Pages/cart"
+                className="block text-center py-2 border rounded hover:bg-gray-100 transition"
+              >
+                Back to Cart
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </>
