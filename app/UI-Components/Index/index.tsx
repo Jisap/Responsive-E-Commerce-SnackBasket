@@ -7,6 +7,7 @@ import Offers from '../Offers-Banner/Offers'
 import Recommended from './Recommended/Recommended'
 import HotDeals from './Hot-Deals/HotDeals'
 import Vendors from './Vendors/Vendors'
+import BestSales from './BestSales/BestSales'
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <Recommended />
       <HotDeals />
       <Vendors />
+      <BestSales />
     </>
   )
 }

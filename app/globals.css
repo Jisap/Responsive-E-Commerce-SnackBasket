@@ -114,6 +114,11 @@
   animation: Anim-scale var(--transition-slow) 1.5s forwards linear;
 }
 
+.product-image-anim {
+  opacity: 0;
+  animation: Anim-scale var(--transition-slow) 0.5s forwards ease-out;
+}
+
 @keyframes Anim-top {
   0% {
     opacity: 0;
@@ -259,3 +264,10 @@
   opacity: 0.1;
 }
 
+.product-wrap:hover img {
+  animation: Anim-scale var(--transition-slow) forwards ease-out;
+}
+
+.best-sale-banner {
+  background-image: url("/BestSales/special-snacks.png");
+}
