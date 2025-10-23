@@ -23,6 +23,8 @@ type ProductItem = {
 const HotDeals = () => {
 
   //TODO: Añadir handleAddToCart y handleAddToWishlist a una carpeta de funciones 
+  //TODO: Crear un componente banner
+  //TODO: Crear un componente product card
 
   const handleAddToCart = (product: ProductItem) => {
     try {
