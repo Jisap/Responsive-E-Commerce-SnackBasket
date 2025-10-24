@@ -271,3 +271,10 @@
 .best-sale-banner {
   background-image: url("/BestSales/special-snacks.png");
 }
+
+.banner {
+  background-color: var(--prim-color);
+  background-image: url(../public/delivery-bg.png);
+  background-position: center center;
+  background-size: cover
+}
