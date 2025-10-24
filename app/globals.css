@@ -164,6 +164,15 @@
   .category-info h2 {
     font-size: 1rem;
   }
+
+  .banner-img1 {
+    width: 30%;
+  }
+
+  .banner-img2 {
+    width: 30%;
+    top:40%
+  }
 }
 
 @media (max-width:575px) {
@@ -187,6 +196,12 @@
     font-size: 2.8rem;
     line-height: 3.5rem;
   }
+
+  .banner-img1,
+  .banner-img2 {
+    display: none;
+  }
+
 }
 
 .category-wrap:hover img {

@@ -11,11 +11,11 @@ const Banner = () => {
         <Image 
           src={deliveryMan}
           alt="delivery man"
-          className="banner-img1 absolute -bottom-10 left-5"
+          className="hidden md:block banner-img1 absolute -bottom-10 left-5  max-lg:w-[200px] max-xl:w-[250px]"
         />
 
         <div className="flex flex-col items-center">
-          <h1 className="text-white text-4xl leading-15 text-center Merienda">
+          <h1 className="text-white text-2xl md:text-3xl lg:text-4xl leading-tight text-center Merienda">
             We Delivery on Next Day from 10:00 <br /> AM to 08:00 PM
           </h1>
 
@@ -27,6 +27,12 @@ const Banner = () => {
             Shop Now <i className="bi bi-cart"></i>
           </button>
         </div>
+
+        <Image
+          src={specialSnacks}
+          alt="special snacks"
+          className="hidden lg:block banner-img2 w-[30%] absolute top-30 right-0"
+        />
       </div>
     </div>
   )
