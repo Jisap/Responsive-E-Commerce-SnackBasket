@@ -9,6 +9,7 @@ import HotDeals from './Hot-Deals/HotDeals'
 import Vendors from './Vendors/Vendors'
 import BestSales from './BestSales/BestSales'
 import Banner from './Banner/Banner'
+import OrganicFood from './Organic-Food/OrganicFood'
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       <Vendors />
       <BestSales />
       <Banner />
+      <OrganicFood />
     </>
   )
 }
