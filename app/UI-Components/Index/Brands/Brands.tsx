@@ -12,7 +12,7 @@ const Brands = () => {
       <div className="px-[8%] lg:px-[12%] py-10">
         <div className="bg-prim-light p-3 rounded-2xl">
           <div className="title my-10 w-full flex justify-center items-center gap-5">
-            <h1 className="text-4xl md:text-5xl Unbounded">Shop by Brands.</h1>
+            <h1 className="text-4xl lg:text-5xl Unbounded">Shop by Brands.</h1>
           </div>
         </div>
       </div>
