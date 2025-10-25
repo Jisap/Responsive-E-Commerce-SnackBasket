@@ -3,18 +3,11 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
-type WishlistItem = {
-  Id: string;
-  title: string;
-  price: string;
-  review: string;
-  image: string;
-};
+import { useCartActions, ProductType as WishlistItem } from "@/app/hooks/useCartActions";
 
 const Wishlist = () => {
 
-  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
+  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]); // El tipo de WishlistItem es el mismo que el de useCartActions
 
   useEffect(() => {
     const loadWishlist = () => {
@@ -48,25 +41,7 @@ const Wishlist = () => {
     toast.success("Product Removed From Wishlist");
   };
 
-
-  const handleAddToCart = (product: WishlistItem) => {
-    const cart: (WishlistItem & { quantity: number })[] = JSON.parse(     // Recuperamos el cart del localStorage
-      localStorage.getItem("cart") || "[]"
-    );
-
-    const existingProduct = cart.find((item) => item.Id === product.Id);  // Verificamos si el producto ya está en el cart
-
-    if (existingProduct) {
-      toast(`${product.title} is already added to cart`, {                // Si está, mostramos un toast
-        icon: "👏",
-      });
-    } else {
-      cart.push({ ...product, quantity: 1 });                             // Si no está, lo agregamos
-      localStorage.setItem("cart", JSON.stringify(cart));                 // y actualizamos el cart en el localStorage
-      window.dispatchEvent(new Event("storageUpdate"));                   // Lanzamos un evento para actualizar el cart en la UI
-      toast.success(`${product.title} is added to cart`);
-    }
-  };
+  const { handleAddToCart } = useCartActions();
 
   return (
     <>

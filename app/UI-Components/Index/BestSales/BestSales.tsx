@@ -1,43 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import toast from "react-hot-toast";
 import Link from "next/link";
 import bestSales from "@/app/JsonData/BestSales.json";
 import bestSaleBanner from "@/public/BestSales/special-snacks-img.png"
-
-type ProductType = {
-  Id: string;
-  image: string;
-  title: string;
-  price: string;
-  lessprice: string;
-  review: string;
-  sold: string;
-  sale: string;
-  quantity?: number;
-};
+import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
 
 
 const BestSales = () => {
 
-  const handelAddToCart = (product: ProductType) => {
-    const cart: ProductType[] = JSON.parse(localStorage.getItem("cart") || "[]");      // Recuperamos el cart del localStorage
-
-    const existingProduct = cart.find((item: ProductType) => item.Id === product.Id);  // Buscamos si el producto ya existe en el cart
-
-    if (existingProduct) {                                                             // Si existe, mostramos un toast
-      toast(`${product.title} is already added to cart`, {
-        icon: "👏",
-      });
-    } else {                                                                           // Si no existe, lo añadimos al cart
-      cart.push({ ...product, quantity: 1 });
-      localStorage.setItem("cart", JSON.stringify(cart));                              // y lo actualizamos en el localStorage
-      window.dispatchEvent(new Event("storageUpdate"));                                // Lanzamos ademas un evento para actualizar el cart en la UI
-      toast.success(`${product.title} is added to cart`);
-    }
-  };
-
+  const { handleAddToCart } = useCartActions();
 
   return (
     <div className="px-[8%] lg:px-[12%] py-10">
@@ -98,7 +70,7 @@ const BestSales = () => {
                     </div>
 
                     <button
-                      onClick={() => handelAddToCart(product)} 
+                      onClick={() => handleAddToCart(product)} 
                       className="w-full px-4 cursor-pointer border border-prim py-2 mt-3 text-sm font-semibold bg-prim-light text-prim hover:bg-prim hover:text-white rounded-full transition-all duration-300"
                     >
                       Add To Cart <i className="bi bi-cart ms-1"></i>

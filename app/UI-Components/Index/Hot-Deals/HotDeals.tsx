@@ -5,70 +5,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import toast from "react-hot-toast";
 import hotDealBanner from "@/public/hot-deals-img.png";
 import products from "@/app/JsonData/HotDeals.json"; 
-
-type ProductItem = {
-  Id: string;
-  image: string;
-  title: string;
-  price: string;
-  lessprice: string;
-  review: string;
-  sold: string;
-  sale: string;
-};
+import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
 
 const HotDeals = () => {
 
-  //TODO: Añadir handleAddToCart y handleAddToWishlist a una carpeta de funciones 
-  //TODO: Crear un componente banner
-  //TODO: Crear un componente product card
-
-  const handleAddToCart = (product: ProductItem) => {
-    try {
-      const cart: (ProductItem & { quantity: number })[] = JSON.parse(
-        localStorage.getItem("cart") || "[]"
-      );
-
-      const existingProduct = cart.find((item) => item.Id === product.Id);
-
-      if (existingProduct) {
-        toast(`${product.title} is already added to cart`, { icon: "👏" });
-      } else {
-        cart.push({ ...product, quantity: 1 });
-        localStorage.setItem("cart", JSON.stringify(cart));
-        window.dispatchEvent(new Event("storageUpdate"));
-        toast.success(`${product.title} is added to cart`);
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-      toast.error("Something went wrong while adding to cart");
-    }
-  };
-
-  const handleAddToWishlist = (product: ProductItem) => {
-    try {
-      const wishlist: ProductItem[] = JSON.parse(
-        localStorage.getItem("wishlist") || "[]"
-      );
-
-      const existingProduct = wishlist.find((item) => item.Id === product.Id);
-
-      if (existingProduct) {
-        toast(`${product.title} is already added to wishlist`, { icon: "👏" });
-      } else {
-        wishlist.push(product);
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-        window.dispatchEvent(new Event("storageUpdate"));
-        toast.success(`${product.title} is added to wishlist`);
-      }
-    } catch (error) {
-      console.error("Error adding to wishlist:", error);
-      toast.error("Something went wrong while adding to wishlist");
-    }
-  };
+  const { handleAddToCart, handleAddToWishlist } = useCartActions();
 
   return (
     <div className="px-[8%] lg:px-[12%] py-10">
@@ -109,7 +52,7 @@ const HotDeals = () => {
             }}
             modules={[Autoplay]}
             breakpoints={{
-              1200: { slidesPerView: 3 },
+              1200: { slidesPerView: 2.5 },
               991: { slidesPerView: 2.5 },
               575: { slidesPerView: 1 },
               0: { slidesPerView: 1 },

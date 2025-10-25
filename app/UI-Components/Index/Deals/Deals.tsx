@@ -10,8 +10,7 @@ import "swiper/css";
 import Deal1 from "@/public/Deals-img1.png";
 import Deal2 from "@/public/Deals-img2.png";
 
-import toast from "react-hot-toast";
-
+import { useCartActions } from "@/app/hooks/useCartActions";
 type DealItem = {
   image: StaticImageData;
   title: string;
@@ -43,29 +42,7 @@ import Link from "next/link";
 
 const Deals = () => {
 
-  const handleAddToCart = (product: any) => {
-    let cart = JSON.parse(localStorage.getItem("cart") || "[]"); // Obtener el carro de la sesión
-
-    const existingProduct = cart.find((item: any) => item.Id === product.Id); // Comprobar si el producto ya existe en el carro
-
-    if (existingProduct) {
-      toast(`${product.title} is already in the cart!`, {
-        icon: <i className="bi bi-exclamation-triangle-fill text-yellow-500 text-2xl"></i>,
-        style: {
-          border: "1px solid #facc15",
-          padding: "16px",
-          color: "#333",
-          background: "#fff9c4"
-        }
-      })
-    } else {
-      cart.push({ ...product, qty: 1 });                    // Agregar el producto al carro
-      localStorage.setItem("cart", JSON.stringify(cart)); // Actualizar el carro en el almacenamiento local
-      window.dispatchEvent(new Event("storageUpdate"));   // Lanza evento de actualización de almacenamiento
-
-      toast(`${product.title} added to the cart!`);
-    }
-  }
+  const { handleAddToCart } = useCartActions();
 
   return (
     <div className="px-[8%] lg:px-[12%] py-10">

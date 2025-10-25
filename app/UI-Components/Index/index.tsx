@@ -7,12 +7,14 @@ import Offers from '../Offers-Banner/Offers'
 import Recommended from './Recommended/Recommended'
 import HotDeals from './Hot-Deals/HotDeals'
 import Vendors from './Vendors/Vendors'
-import BestSales from './BestSales/BestSales'
+
 import Banner from './Banner/Banner'
 import OrganicFood from './Organic-Food/OrganicFood'
 import ShortProducts from './Short-Products/ShortProducts'
 import Brands from './Brands/Brands'
 import NewArrivals from './New-Arrivals/NewArrivals'
+import BestSales from './BestSales/BestSales'
+
 
 
 const Index = () => {

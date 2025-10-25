@@ -3,61 +3,11 @@
 import Image from "next/image";
 
 import products from "@/app/JsonData/Recommend.json";
-import toast from "react-hot-toast";
 import Link from "next/link";
-
-type ProductType = {
-  Id: string;
-  image: string;
-  title: string;
-  price: string;
-  lessprice: string;
-  review: string;
-  sold: string;
-  sale: string;
-  quantity?: number;
-};
-
-
-
+import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
 
 const Recommended = () => {
-
-  const handelAddToCart = (product: ProductType) => {
-    const cart: ProductType[] = JSON.parse(localStorage.getItem("cart") || "[]");      // Recuperamos el cart del localStorage
-
-    const existingProduct = cart.find((item: ProductType) => item.Id === product.Id);  // Buscamos si el producto ya existe en el cart
-
-    if (existingProduct) {                                                             // Si existe, mostramos un toast
-      toast(`${product.title} is already added to cart`, {
-        icon: "👏",
-      });
-    } else {                                                                           // Si no existe, lo añadimos al cart
-      cart.push({ ...product, quantity: 1 });
-      localStorage.setItem("cart", JSON.stringify(cart));                              // y lo actualizamos en el localStorage
-      window.dispatchEvent(new Event("storageUpdate"));                                // Lanzamos ademas un evento para actualizar el cart en la UI
-      toast.success(`${product.title} is added to cart`);
-    }
-  };
-
-  const handelAddToWishlist = (product: ProductType) => {
-    const wishlist: ProductType[] = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
-    const existingProduct = wishlist.find(
-      (item: ProductType) => item.Id === product.Id
-    );
-
-    if (existingProduct) {
-      toast(`${product.title} is already added to Wishlist`, {
-        icon: "👏",
-      });
-    } else {
-      wishlist.push({ ...product, quantity: 1 });
-      localStorage.setItem("wishlist", JSON.stringify(wishlist));
-      window.dispatchEvent(new Event("storageUpdate"));
-      toast.success(`${product.title} is added to Wishlist`);
-    }
-  };
+  const { handleAddToCart, handleAddToWishlist } = useCartActions();
 
   return (
     <div className="px-[8%] lg:px-[12%] py-10">
@@ -83,7 +33,7 @@ const Recommended = () => {
 
                 {/* Botton on product card */}
                 <div
-                  onClick={() => handelAddToWishlist(product)}
+                  onClick={() => handleAddToWishlist(product)}
                   className="absolute top-0 left-0 w-[40px] h-[40px] rounded-full text-prim bg-prim-light hover:bg-prim hover:text-white transition-all flex justify-center items-center "
                 >
                   <i className="bi bi-balloon-heart text-2xl"></i>
@@ -94,7 +44,7 @@ const Recommended = () => {
                     absolute off-product top-0 right-0 px-4 py-2 Merienda text-xs font-bold text-white rounded 
                     ${product.sale === "New"
                       ? "bg-yellow-400"
-                      : product.sale.includes("%")
+                      : product.sale?.includes("%")
                         ? "bg-red-400"
                         : "opacity-0"
                     }`
@@ -143,7 +93,7 @@ const Recommended = () => {
               </Link>
 
               <button
-                onClick={() => handelAddToCart(product)}
+                onClick={() => handleAddToCart(product)}
                 className="px-4 w-full py-2 cursor-pointer font-semibold text-prim bg-prim-light rounded-full text-md hover:bg-prim hover:text-white transition-all duration-500"
               >
                 Add To Cart <i className="bi bi-cart ms-1"></i>
