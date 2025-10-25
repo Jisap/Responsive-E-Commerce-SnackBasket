@@ -12,6 +12,7 @@ import Banner from './Banner/Banner'
 import OrganicFood from './Organic-Food/OrganicFood'
 import ShortProducts from './Short-Products/ShortProducts'
 import Brands from './Brands/Brands'
+import NewArrivals from './New-Arrivals/NewArrivals'
 
 
 const Index = () => {
@@ -30,6 +31,7 @@ const Index = () => {
       <OrganicFood />
       <ShortProducts />
       <Brands />
+      <NewArrivals />
     </>
   )
 }
