@@ -6,23 +6,11 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import products from "@/app/JsonData/NewArrivals.json"
-import Link from 'next/link';
-import { useCartActions } from "./useCartActions";
+import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
 
-type ProductType = {
-  Id: string;
-  image: string;
-  title: string;
-  price: string;
-  lessprice: string;
-  review: string;
-  sold: string;
-  sale: string;
-  quantity?: number;
-};
 
 const NewArrivals = () => {
-  
+
   const { handleAddToCart, handleAddToWishlist } = useCartActions();
 
   return (
@@ -79,7 +67,7 @@ const NewArrivals = () => {
                         absolute off-product top-0 right-0 px-4 py-2 Merienda text-xs font-bold text-white rounded 
                         ${product.sale === "New"
                             ? "bg-yellow-400"
-                            : product.sale.includes("%")
+                            : product.sale?.includes("%")
                               ? "bg-red-400"
                               : "opacity-0"
                           }

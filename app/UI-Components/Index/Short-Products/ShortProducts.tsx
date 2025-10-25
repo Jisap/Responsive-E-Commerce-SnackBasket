@@ -6,10 +6,8 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import products from "@/app/JsonData/ShortProducts.json";
 import Link from "next/link";
-import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
 
 const ShortProducts = () => {
-  const { handleAddToCart, handleAddToWishlist } = useCartActions();
 
   return (
     <>
