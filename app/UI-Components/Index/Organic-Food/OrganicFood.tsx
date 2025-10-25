@@ -74,7 +74,7 @@ const OrganicFood = () => {
   return (
     <>
       <div className="px-[8%] lg:px-[12%] py-10">
-        <div className="title my-10 w-full flex flex-col lg:flex-eow justify-between items-start gap-5">
+        <div className="title my-10 w-full flex flex-col lg:flex-row justify-between items-start gap-5">
           <h1 className="text-4xl md:text-5xl Unbounded">Organic Food.</h1>
         </div>
 
