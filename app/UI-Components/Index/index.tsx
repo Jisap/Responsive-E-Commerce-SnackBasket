@@ -15,6 +15,7 @@ import Brands from './Brands/Brands'
 import NewArrivals from './New-Arrivals/NewArrivals'
 import BestSales from './BestSales/BestSales'
 import Benefits from './Benefits/Benefits'
+import Newsletter from './Newsletter/Newsletter'
 
 
 
@@ -36,6 +37,7 @@ const Index = () => {
       <Brands />
       <NewArrivals />
       <Benefits />
+      <Newsletter />
     </>
   )
 }
