@@ -25,6 +25,13 @@ const Newsletter = () => {
             </button>
           </div>
         </div>
+
+        <div className="w-full lg:w-1/2">
+          <Image 
+            src={newsletter}
+            alt="newsletter"
+          />
+        </div>
       </div>
     </div>
   )
