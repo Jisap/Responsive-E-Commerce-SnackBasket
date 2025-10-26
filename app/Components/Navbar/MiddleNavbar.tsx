@@ -46,10 +46,10 @@ const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) 
       ...BestSales,
       ...OrganicFood,
       ...Recommend,
-      ...ShortProducts.Featured,
-      ...ShortProducts.TopSelling,
-      ...ShortProducts.OnSale,
-      ...ShortProducts.TopRated,
+      ...(ShortProducts?.Featured?.map(p => ({...p, Id: `Featured-${p.Id}`})) || []),
+      ...(ShortProducts?.TopSelling?.map(p => ({...p, Id: `TopSelling-${p.Id}`})) || []),
+      ...(ShortProducts?.OnSale?.map(p => ({...p, Id: `OnSale-${p.Id}`})) || []),
+      ...(ShortProducts?.TopRated?.map(p => ({...p, Id: `TopRated-${p.Id}`})) || []),
     ];
 
     // Eliminar duplicados basados en el 'Id' del producto
