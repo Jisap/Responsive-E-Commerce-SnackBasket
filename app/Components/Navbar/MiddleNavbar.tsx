@@ -2,6 +2,14 @@
 
 import Link from "next/link"
 import allProductsData from "@/app/JsonData/BestDeals.json";
+import Arrivals from "@/app/JsonData/NewArrivals.json";
+import BestDeals from "@/app/JsonData/BestDeals.json";
+import BestSales from "@/app/JsonData/BestSales.json";
+import OrganicFood from "@/app/JsonData/OrganicFood.json";
+import Recommend from "@/app/JsonData/Recommend.json";
+import ShortProducts from "@/app/JsonData/ShortProducts.json";
+
+
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
@@ -17,7 +25,7 @@ interface ProductType {
   price: string;
   lessprice: string;
   review: string;
-  sold: string;
+  sold?: string;
   Price?: string;
   ProductImage?: string;
 }
@@ -31,7 +39,26 @@ interface MiddleNavbarProps {
 const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) => {
   const [searchTerm, setSearchTerm] = useState("");                    // Término de búsqueda
   const [result, setResult] = useState<ProductType[]>([]);             // Resultados de la búsqueda
-  const allProduct: ProductType[] = useMemo(() => [...allProductsData], []); // Memo de todos los productos
+  const allProduct: ProductType[] = useMemo(() => {
+    const combinedProducts = [
+      ...Arrivals,
+      ...BestDeals,
+      ...BestSales,
+      ...OrganicFood,
+      ...Recommend,
+      ...ShortProducts.Featured,
+      ...ShortProducts.TopSelling,
+      ...ShortProducts.OnSale,
+      ...ShortProducts.TopRated,
+    ];
+
+    // Eliminar duplicados basados en el 'Id' del producto
+    const uniqueProducts = combinedProducts.filter(
+      (product, index, self) => index === self.findIndex((p) => p.Id === product.Id)
+    );
+
+    return uniqueProducts;
+  }, []); // Memo de todos los productos
 
   // Se ejecuta cuando searchTerm cambia
   useEffect(() => {
