@@ -75,7 +75,7 @@ const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) 
 
 
   return (
-    <div className={`w-full bg-prim-light border-b border-gray-300 relative transition-all duration-500 ease-in-out ${
+    <div className={`w-full bg-prim-light border-b border-gray-300 relative z-40 transition-all duration-500 ease-in-out ${
       isFixed ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
     }`}>
       <div className="flex items-center justify-between py-5 px-[8%] lg:px-[12%]">
