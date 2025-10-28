@@ -364,3 +364,23 @@
   background-position: center center;
   background-size: cover;
 }
+
+@media (min-width: 1024px) and (max-width: 1300px) {
+  .footer {
+    font-size: 0.8rem;
+    /* reduce ligeramente el texto */
+  }
+
+  .footer h2 {
+    font-size: 0.85rem !important;
+    /* títulos más compactos */
+  }
+
+  .footer a {
+    font-size: 0.85rem !important;
+  }
+
+  .footer .gap-10 {
+    gap: 1.5rem !important;
+  }
+}

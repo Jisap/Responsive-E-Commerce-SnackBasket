@@ -6,177 +6,146 @@ import StoreImg2 from "@/public/store-img2.png"
 import payment from "@/public/payment.png"
 import Link from "next/link"
 
-
-
-
 const Footer = () => {
+  // --- Datos para la información de contacto ---
+  const contactItems = [
+    {
+      icon: "bi-geo-alt-fill",
+      content: (
+        <>
+          789 Inner Lane,
+          <span className="hidden lg:inline"><br /></span>
+          Biyes park, California
+        </>
+      ),
+      wrapperClass: "leading-relaxed",
+    },
+    {
+      icon: "bi-telephone",
+      content: (
+        <>
+          +00 123 456 789
+          <span className="hidden lg:inline"><br /></span>
+          or +00 987 654 012
+        </>
+      ),
+      wrapperClass: "leading-relaxed break-words",
+    },
+    {
+      icon: "bi-envelope",
+      content: "Example@site.com",
+      wrapperClass: "leading-relaxed break-all",
+    },
+  ];
+
+  // --- Datos para las columnas de enlaces del footer ---
+  const footerLinks = [
+    {
+      title: "Information",
+      links: ["Become a vendor", "Affiliate program", "Privacy Policy", "Our Suppliers", "Extended Plan", "Community"],
+    },
+    {
+      title: "Support",
+      links: ["Help Center", "Contact Us", "Report Abuse", "Submit and Dispute", "Policies & Rule", "Online Shopping"],
+    },
+    {
+      title: "Account",
+      links: ["My Account", "Order History", "Shopping Cart", "Compare", "Help Ticket", "Wishlist"],
+    },
+    {
+      title: "Groceries",
+      links: ["Dairy & Eggs", "Meat & Seafood", "Breakfast Food", "Household Supplies", "Bread & Bakery", "Pantry Staples"],
+    },
+  ];
+
   return (
     <>
-      <div className="footer px-[8%] lg:px-[12%] py-5 pt-10">
-        <div className="flex flex-col lg:flex-row gap-3 pb-5">
+      <footer className="footer px-[8%] lg:px-[12%] py-10">
+        {/* --- GRID PRINCIPAL --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr_250px] gap-10 pb-10">
+
+          {/* --- Columna 1: Logo y contacto --- */}
           <div className="flex flex-col">
-            {/* logo */}
-            <Link href="/" className="text-3xl font-bold Merienda text-black">
+            <Link
+              href="/"
+              className="text-2xl sm:text-3xl font-bold Merienda text-black"
+            >
               Snack<span className="text-prim">Basket</span>
             </Link>
 
-            <p className="my-3 text-gray-700">
-              We&apos;re Grocery Shop, an innovative team of food supliers.
+            <p className="my-3 text-sm sm:text-base text-gray-700">
+              We&apos;re Grocery Shop,
+              <span className="hidden lg:inline"><br /></span>
+              an innovative team of food suppliers.
             </p>
 
-            <div className="flex flex-col gap-y-6 mt-3">
-              <p className="text-lg">
-                <i className="bi bi-geo-alt-fill px-3 py-2 mr-3 text-white bg-prim rounded-full"></i>
-                789 Inner Lane, Biyes park, California
-              </p>
-
-              <p className="text-lg">
-                <i className="bi bi-telephone px-3 py-2 mr-3 text-white bg-prim rounded-full"></i>
-                +00 123 456 789 or +00 987 654 012
-              </p>
-
-              <p className="text-lg">
-                <i className="bi bi-envelope px-3 py-2 mr-3 text-white bg-prim rounded-full"></i>
-                Example@site.com
-              </p>
+            <div className="flex flex-col gap-y-5 mt-3">
+              {contactItems.map((item, index) => (
+                <div key={index} className="flex items-start text-sm sm:text-base">
+                  <i className={`bi ${item.icon} px-3 py-2 mr-3 text-white bg-prim rounded-full flex-shrink-0`}></i>
+                  <span className={item.wrapperClass}>
+                    {item.content}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-12 lg:mt-0">
-            <div className="flex flex-col ps-2">
-              <h2 className="Unbounded text-2xl mb-3">Information</h2>
-
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Become a vendor
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Affiliate program
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Our Suppliers
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Extended Plan
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Community
-              </Link>
-            </div>
-
-            <div className="flex flex-col ps-2">
-              <h2 className="Unbounded text-2xl mb-3">Support</h2>
-
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Help Center
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Contact Us
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Report Abuse
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Submit and Dispute
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Policies & Rule
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Online Shopping
-              </Link>
-            </div>
-
-            <div className="flex flex-col ps-2">
-              <h2 className="Unbounded text-2xl mb-3">Account</h2>
-
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                My Account
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Order History
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Shopping cart
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Compare
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Help Ticket
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Wishlist
-              </Link>
-            </div>
-
-            <div className="flex flex-col ps-2">
-              <h2 className="Unbounded text-2xl mb-3">Groceries</h2>
-
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Dairy & Eggs
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Meat & Seafood
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Breakfast Food
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Household Supplies
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Bread & Bakery
-              </Link>
-              <Link href="#" className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300">
-                Pantry Staples
-              </Link>
-            </div>
+          {/* --- Columna 2: Bloques de enlaces --- */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-7 sm:gap-10">
+            {footerLinks.map((column) => (
+              <div key={column.title} className="flex flex-col">
+                <h2 className="Unbounded text-xl md:text-lg lg:text-base mb-3">{column.title}</h2>
+                {column.links.map((link) => (
+                  <Link
+                    key={link}
+                    href="#"
+                    className="mb-2 text-gray-600 text-[17px] font-[400] hover:text-prim hover:ps-2 transition-all duration-300"
+                  >
+                    {link}
+                  </Link>
+                ))}
+              </div>
+            ))}
           </div>
 
-          <div className="flex flex-col">
-            <h2 className="Unbounded text-2xl mb-3">
-              Shop on The Go
-            </h2>
-
+          {/* --- Columna 3: App y redes sociales --- */}
+          <div className="flex flex-col lg:items-end lg:text-right">
+            <h2 className="Unbounded text-xl md:text-lg lg:text-base mb-3">Shop on The Go</h2>
             <p className="my-3 text-gray-700">
-              SnackBasket App is available. Get it now
+              SnackBasket App is available.
+              <span className="hidden lg:inline"><br /></span>
+              Get it now
             </p>
 
-            <div className="flex">
-              <Image 
-                src={StoreImg1}
-                alt="Store1"
-              />
-
-              <Image 
-                src={StoreImg2}
-                alt="Store2"
-              />
+            <div className="flex gap-3 flex-col xl:flex-col lg:items-end">
+              <Image src={StoreImg1} alt="Store1" className="w-[130px] h-auto" />
+              <Image src={StoreImg2} alt="Store2" className="w-[130px] h-auto" />
             </div>
 
-            <div className="social-media flex gap-3 mt-5">
-              <i className="bi bi-facebook px-3 py-2 rounded-full bg-black text-white hover:bg-prim transition-all duration-300 cursor-pointer"></i>
-              <i className="bi bi-twitter px-3 py-2 rounded-full bg-black text-white hover:bg-prim transition-all duration-300 cursor-pointer"></i>
-              <i className="bi bi-linkedin px-3 py-2 rounded-full bg-black text-white hover:bg-prim transition-all duration-300 cursor-pointer"></i>
-              <i className="bi bi-youtube px-3 py-2 rounded-full bg-black text-white hover:bg-prim transition-all duration-300 cursor-pointer"></i>
+            <div className="social-media flex gap-3 mt-5 lg:justify-end">
+              {["facebook", "twitter", "linkedin", "youtube"].map((icon) => (
+                <i
+                  key={icon}
+                  className={`bi bi-${icon} px-3 py-2 rounded-full bg-black text-white hover:bg-prim transition-all duration-300 cursor-pointer`}
+                ></i>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </footer>
 
+      {/* --- Pie inferior --- */}
       <div className="bottom-footer px-[8%] lg:px-[12%] py-5 bg-prim-light">
         <div className="flex flex-col md:flex-row justify-between items-center gap-5">
-          <p className="text-lg">
-            ©2025. All Rights Reserved By <a href="https://uicode.in/" className="font-semibold">Uicode</a>
+          <p className="text-center md:text-left text-lg">
+            ©2025. All Rights Reserved By{" "}
+            <a href="https://uicode.in/" className="font-semibold hover:text-prim transition-colors">
+              Uicode
+            </a>
           </p>
 
-          <Image 
-            src={payment}
-            alt="payment"
-          />
+          <Image src={payment} alt="payment" className="w-auto h-[28px]" />
         </div>
       </div>
     </>
