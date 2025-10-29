@@ -33,7 +33,7 @@ type CartItem = {
   image: string;
 };
 
-const ProductDetails = ({ id, products }:Props) => {
+const ProductDetails = ({ id, products }: Props) => {
 
   const { handleAddToCart, handleAddToWishlist } = useCartActions();
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -47,7 +47,7 @@ const ProductDetails = ({ id, products }:Props) => {
     setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
   };
 
-  if(!id){
+  if (!id) {
     return (
       <div>
         <h1>
@@ -56,7 +56,7 @@ const ProductDetails = ({ id, products }:Props) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {products.map((product) => (
-            <div 
+            <div
               key={product.Id}
               className="border p-4 rounded-md"
             >
@@ -78,9 +78,9 @@ const ProductDetails = ({ id, products }:Props) => {
     )
   }
 
-  const product = products.find((item)=> String(item.Id) === String(id)); // Buscamos el producto con el ID especificado
+  const product = products.find((item) => String(item.Id) === String(id)); // Buscamos el producto con el ID especificado
 
-  if(!product) return <p>Product Not Found</p>
+  if (!product) return <p>Product Not Found</p>
 
   const relatedProducts = products.filter((item) => item.Id !== product.Id); // Buscamos los productos relacionados con el producto buscado
 
@@ -89,7 +89,7 @@ const ProductDetails = ({ id, products }:Props) => {
     <>
       <div className="px-[8%] lg:px-[12%] py-10">
         <div className="flex justify-between gap-5">
-          
+
           {/* Imagen + Info */}
           <div className="w-full lg:w-1/1 flex sticky top-2/12 left-0 h-fit justify-between">
             {/* Image (derecha)*/}
@@ -120,7 +120,7 @@ const ProductDetails = ({ id, products }:Props) => {
               </span>
 
               <p className="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, excepturi magni? Nostrum rerum, culpa magnam assumenda est cupiditate iusto obcaecati officiis dolor dignissimos ex non amet aperiam ipsam tempore quos?</p>
-            
+
               <div className="flex items-center gap-2 border-b border-gray-300 pb-3">
                 <h3 className="Unbounded text-2xl">{product.price}</h3>
                 <del className="Unbounded text-gray-500">{product.lessprice}</del>
@@ -169,20 +169,76 @@ const ProductDetails = ({ id, products }:Props) => {
           </div>
 
           <div className="w-full lg:w-1/2">
-            <div className="p-3">
-              <div className="flex justify-between items-center gap-2 px-2 bg-prim p-3 rounded-full">
-                <span className="text-white">
-                  <i className="bi bi-shop mr-2 bg-white text-black px-3 py-2 rounded-full"></i>
-                  By <span className="font-semibold">SnackBasket</span>
-                </span>
+            <div className="border border-gray-300 rounded-md">
+              <div className="p-3">
+                <div className="flex justify-between items-center gap-2 px-2 bg-prim p-3 rounded-full">
+                  <span className="text-white">
+                    <i className="bi bi-shop mr-2 bg-white text-black px-3 py-2 rounded-full"></i>
+                    By <span className="font-semibold">SnackBasket</span>
+                  </span>
 
-                <button className="bg-white text-black px-5 py-2 rounded-full hover:bg-black cursor-pointer hover:text-white transition-colors">
-                  View More
-                </button>
+                  <button className="bg-white text-black px-5 py-2 rounded-full hover:bg-black cursor-pointer hover:text-white transition-colors">
+                    View More
+                  </button>
+                </div>
+              </div>
+
+              <div className="bg-[#97ffc871]">
+                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                  <i className="bi bi-truck mr-2 px-3 py-2 rounded-full text-prim"></i>
+
+                  <div className="flex flex-col">
+                    <h3 className="Unbounded">Fast Delivery</h3>
+                    <p className="text-gray-600">Lightning-fast shipping, guaranteed.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                  <i className="bi bi-arrow-return-left mr-2 px-3 py-2 rounded-full text-prim"></i>
+
+                  <div className="flex flex-col">
+                    <h3 className="Unbounded">Free 30-day returns</h3>
+                    <p className="text-gray-600">Shop risk-free with easy returns.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                  <i className="bi bi-bag-check mr-2 px-3 py-2 rounded-full text-prim"></i>
+
+                  <div className="flex flex-col">
+                    <h3 className="Unbounded">Pickup available at Shop location</h3>
+                    <p className="text-gray-600">Usually ready in 24 hours.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                  <i className="bi bi-bag-check mr-2 px-3 py-2 rounded-full text-prim"></i>
+
+                  <div className="flex flex-col">
+                    <h3 className="Unbounded">Payment</h3>
+                    <p className="text-gray-600">Payment upon receipt of goods, Payment by card in the department, Google Pay, Online card.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                  <i className="bi bi-clipboard-heart mr-2 px-3 py-2 rounded-full text-prim"></i>
+
+                  <div className="flex flex-col">
+                    <h3 className="Unbounded">Warranty</h3>
+                    <p className="text-gray-600">The Consumer Protection Act does not provide for the return of this product of proper quality.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                  <i className="bi bi-box2-heart mr-2 px-3 py-2 rounded-full text-prim"></i>
+
+                  <div className="flex flex-col">
+                    <h3 className="Unbounded">Packaging</h3>
+                    <p className="text-gray-600">Research & development value proposition graphical user interface investor..</p>
+                  </div>
+                </div>
               </div>
             </div>
-
-            
           </div>
         </div>
       </div>
