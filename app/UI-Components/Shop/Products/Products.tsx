@@ -43,13 +43,18 @@ const Products = () => {
     setFilteredProducts(result); // Actualizamos los resultados filtrados
 
   }, [price, discount50, discount30, isNew])
-  
-  const randomProduct = products[Math.floor(Math.random() * products.length)]; // Obtenemos un producto aleatorio
+
+  const [randomProduct, setRandomProduct] = useState(products[0]);
+
+  useEffect(() => {
+    // Seleccionar un producto aleatorio solo en el cliente para evitar errores de hidratación
+    setRandomProduct(products[Math.floor(Math.random() * products.length)]);
+  }, []); // El array vacío asegura que esto solo se ejecute una vez en el cliente
 
   return (
     <div className="px-[8%] lg:px-[12%] py-10">
       <div className="my-10">
-        <div className="flex flex-col md:flex-row justify-between gap-5">
+        <div className="flex flex-col md:flex-row justify-between gap-5 items-start">
           {/* Sidebar */}
           <div className="relative w-full h-full md:w-1/2 lg:w-1/3 lg:sticky top-22 left-0">
             <div className="border border-gray-300 shadow rounded p-3">
@@ -132,7 +137,7 @@ const Products = () => {
 
             {/* Random Product */}
             <div className="mt-3">
-                <div
+                {randomProduct && <div
                   key={randomProduct.Id}
                   className="product-wrap border border-gray-300 rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition-all hover:border-[var(--prim-color)] cursor-pointer duration-300"
                 >
@@ -212,9 +217,14 @@ const Products = () => {
                   >
                     Add To Cart <i className="bi bi-cart ms-1"></i>
                   </button>
-                </div>
+                </div>}
             </div>
 
+          </div>
+
+          {/* Product Grid */}
+          <div>
+            
           </div>
         </div>
       </div>
