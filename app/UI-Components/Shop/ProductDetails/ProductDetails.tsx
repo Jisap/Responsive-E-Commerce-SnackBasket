@@ -6,7 +6,7 @@ import Deals from "../../Index/Deals/Deals";
 import toast from "react-hot-toast";
 import { ProductType, useCartActions } from '../../../hooks/useCartActions';
 import { useState } from "react";
-import  satisfactionIcon from "@/public/satisfaction-icon.png";
+import satisfactionIcon from "@/public/satisfaction-icon.png";
 
 interface ProductDetailsType {
   Id: string;
@@ -248,14 +248,64 @@ const ProductDetails = ({ id, products }: Props) => {
             <span className="bg-prim px-4 py-2 text-white font-semibold text-xl rounded-full">
               Description
             </span>
+
             <span className="bg-[#97ffc871] px-4 py-2 text-prim font-semibold text-xl rounded-full flex gap-3">
-              <Image 
+              <Image
                 src={satisfactionIcon}
                 alt="satisfaction"
               />
               100% satisfaction guaranteed
             </span>
           </div>
+
+          <div className="p-5 mt-5">
+            <h2 className="Unbounded text-2xl mb-3">Product Description</h2>
+            
+            <p className="text-gray-500 mb-1">
+              Wherever celebrations and good times happen, the LAY'S brand will be there just as it has been for more than 75 years. With flavors almost as rich as our history, we have a chip or crisp flavor guaranteed to bring a smile on your face.
+            </p>
+            <p className="text-gray-500 mb-1">
+              Morbi ut sapien vitae odio accumsan gravida. Morbi vitae erat auctor, eleifend nunc a, lobortis neque. viverra. Maecenas lacus odio, feugiat eu nunc sit amet, maximus sagittis dolor.
+            </p>
+            <p className="text-gray-500 mb-1">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius perferendis perspiciatis temporibus voluptate, nemo quod dignissimos nam molestias nulla a officia eos, voluptatem beatae provident, dolorum suscipit aspernatur doloribus. Ut.
+            </p>
+
+            <div className="mt-5 ps-5">
+              <p className="text-gray-500 mb-1">
+                <span>•</span> 8.0 oz. bag of LAY'S Classic Potato Chips
+              </p>
+              <p className="text-gray-500 mb-1">
+                <span>•</span> Tasty LAY's potato chips are a great snack
+              </p>
+              <p className="text-gray-500 mb-1">
+                <span>•</span> Includes three ingredients: potatoes, oil, and salt
+              </p>
+              <p className="text-gray-500 mb-1">
+                <span>•</span> Gluten free product
+              </p>
+            </div>
+
+            <div className="mt-3">
+              <p className="text-gray-500 mb-1">Made in USA</p>
+              <p className="text-gray-500 mb-1">Ready to Eat</p>
+            </div>
+
+            <h2 className="Unbounded text-2xl mb-3 mt-8">Product Specifications</h2>
+
+            <div>
+              <p className="text-gray-500 mb-2">
+                <i className="bi bi-check-circle text-prim mr-1"></i>
+                <span className="font-semibold text-black">Product Type:</span> Chips & Dips
+              </p>
+              <p className="text-gray-500 mb-2">
+                <i className="bi bi-check-circle text-prim mr-1"></i>
+                <span className="font-semibold text-black">Product Name:</span> {product.title}
+              </p>
+            </div>
+          </div>
+
+          
         </div>
       </div>
     </>
