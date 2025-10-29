@@ -302,6 +302,26 @@ const ProductDetails = ({ id, products }: Props) => {
                 <i className="bi bi-check-circle text-prim mr-1"></i>
                 <span className="font-semibold text-black">Product Name:</span> {product.title}
               </p>
+              <p className="text-gray-500 mb-2">
+                <i className="bi bi-check-circle text-prim mr-1"></i>
+                <span className="font-semibold text-black">Brand:</span> Lay's
+              </p>
+              <p className="text-gray-500 mb-2">
+                <i className="bi bi-check-circle text-prim mr-1"></i>
+                <span className="font-semibold text-black">FSA Eligible:</span> No
+              </p>
+              <p className="text-gray-500 mb-2">
+                <i className="bi bi-check-circle text-prim mr-1"></i>
+                <span className="font-semibold text-black">Size/Count:</span> 8.0oz
+              </p>
+              <p className="text-gray-500 mb-2">
+                <i className="bi bi-check-circle text-prim mr-1"></i>
+                <span className="font-semibold text-black">Item Code:</span> 425652
+              </p>
+              <p className="text-gray-500 mb-2">
+                <i className="bi bi-check-circle text-prim mr-1"></i>
+                <span className="font-semibold text-black">Ingredients:</span> Potatoes, Vegetable Oil, and Salt.
+              </p>
             </div>
           </div>
 
