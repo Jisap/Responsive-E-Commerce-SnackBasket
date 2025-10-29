@@ -43,7 +43,7 @@ const ShopPage = () => {
     <div>
       {productId ? (
         <ProductDetails 
-          productId={productId}
+          id={productId}
           products={allProduct}  
         />
       ):(

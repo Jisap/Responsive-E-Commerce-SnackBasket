@@ -106,7 +106,7 @@ const Cart = () => {
 
                     <tbody>
                       {cartItems.map((item) => {   
-                        const quantity = item.qty ?? 1;
+                        const quantity = (item as any).qty ?? (item as any).quantity ?? 1;
                         const priceNum = parseFloat(item.price.replace(/[^0-9.]+/g, "")) || 0;
                         const itemSubTotal = priceNum * quantity;
 
@@ -202,7 +202,7 @@ const Cart = () => {
               {/* Mobile Cards */}
               <div className="grid grid-cols-1 gap-4 md:hidden">
                 {cartItems.map((item) => {
-                  const quantity = item.qty ?? 1;
+                  const quantity = (item as any).qty ?? (item as any).quantity ?? 1; // El cart acepta tanto el atributo 'qty' como 'quantity'
                   const priceNum = parseFloat(item.price.replace(/[^0-9.]+/g, "")) || 0;
                   const itemSubTotal = priceNum * quantity;
 
