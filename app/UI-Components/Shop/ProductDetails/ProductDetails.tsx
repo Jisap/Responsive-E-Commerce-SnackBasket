@@ -90,6 +90,7 @@ const ProductDetails = ({ id, products }:Props) => {
       <div className="px-[8%] lg:px-[12%] py-10">
         <div className="flex justify-between gap-5">
           
+          {/* Imagen + Info */}
           <div className="w-full lg:w-1/1 flex sticky top-2/12 left-0 h-fit justify-between">
             {/* Image (derecha)*/}
             <div className="border border-gray-300 rounded-2xl">
@@ -167,7 +168,22 @@ const ProductDetails = ({ id, products }:Props) => {
             </div>
           </div>
 
+          <div className="w-full lg:w-1/2">
+            <div className="p-3">
+              <div className="flex justify-between items-center gap-2 px-2 bg-prim p-3 rounded-full">
+                <span className="text-white">
+                  <i className="bi bi-shop mr-2 bg-white text-black px-3 py-2 rounded-full"></i>
+                  By <span className="font-semibold">SnackBasket</span>
+                </span>
 
+                <button className="bg-white text-black px-5 py-2 rounded-full hover:bg-black cursor-pointer hover:text-white transition-colors">
+                  View More
+                </button>
+              </div>
+            </div>
+
+            
+          </div>
         </div>
       </div>
     </>
