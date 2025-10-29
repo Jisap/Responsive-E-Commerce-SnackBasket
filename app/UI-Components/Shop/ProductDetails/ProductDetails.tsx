@@ -6,6 +6,7 @@ import Deals from "../../Index/Deals/Deals";
 import toast from "react-hot-toast";
 import { ProductType, useCartActions } from '../../../hooks/useCartActions';
 import { useState } from "react";
+import  satisfactionIcon from "@/public/satisfaction-icon.png";
 
 interface ProductDetailsType {
   Id: string;
@@ -239,6 +240,21 @@ const ProductDetails = ({ id, products }: Props) => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="border border-gray-300 mt-10 rounded-lg">
+          <div className="flex justify-between items-center border-b p-3 pb-5 border-gray-300 gap-2">
+            <span className="bg-prim px-4 py-2 text-white font-semibold text-xl rounded-full">
+              Description
+            </span>
+            <span className="bg-[#97ffc871] px-4 py-2 text-prim font-semibold text-xl rounded-full flex gap-3">
+              <Image 
+                src={satisfactionIcon}
+                alt="satisfaction"
+              />
+              100% satisfaction guaranteed
+            </span>
           </div>
         </div>
       </div>
