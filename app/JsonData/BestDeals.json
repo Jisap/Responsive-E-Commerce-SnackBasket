@@ -67,27 +67,112 @@
     "Id": "BestDeals3",
     "image": "/BestDeals/product-img3.png",
     "title": "Mixed Fresh Vegetables Pack",
-    "price": "$13.99",
-    "lessprice": "$25.99",
-    "review": "(8k)",
-    "sold": "15/25"
+    "price": "$18.99",
+    "lessprice": "$32.99",
+    "review": "(17k)",
+    "sold": "15/25",
+    "sale": "New",
+    "rating": 4.6,
+    "description": "Hearty organic bread packed with whole grains and seeds. Perfect for a nutritious breakfast or sandwich.",
+    "offer": "Freshly Baked - New!",
+    "brand": "Nature's Bake",
+    "features": [
+      "100% Whole Grains",
+      "Rich in Fiber",
+      "No Artificial Preservatives"
+    ],
+    "tags": [
+      "Organic",
+      "Bread",
+      "Whole Grain"
+    ],
+    "specifications": {
+      "Product Type": "Organic Bread",
+      "Brand": "Nature's Bake",
+      "Weight": "600g",
+      "Ingredients": "Whole wheat flour, various seeds, yeast, salt"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-seedling",
+        "title": "Nutrient-Rich",
+        "description": "Packed with essential fibers and vitamins."
+      }
+    ]
   },
   {
     "Id": "BestDeals4",
     "image": "/BestDeals/product-img5.png",
     "title": "Sun-Maid Raisins",
-    "price": "$16.99",
-    "lessprice": "$32.99",
-    "review": "(5k)",
-    "sold": "8/15"
+    "price": "$7.99",
+    "lessprice": "$15.99",
+    "review": "(17k)",
+    "sold": "30/50",
+    "sale": "New",
+    "rating": 4.9,
+    "description": "Classic, naturally sweet California raisins from Sun-Maid. A timeless snack for all ages.",
+    "offer": "New Arrival",
+    "brand": "Sun-Maid",
+    "features": [
+      "100% Natural California Raisins",
+      "No added sugar",
+      "Fat-free"
+    ],
+    "tags": [
+      "Dried Fruit",
+      "Snack",
+      "Natural"
+    ],
+    "specifications": {
+      "Product Type": "Dried Fruit",
+      "Brand": "Sun-Maid",
+      "Origin": "California, USA",
+      "Weight": "22.58 oz"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-sun",
+        "title": "Sun-Dried",
+        "description": "Naturally ripened and dried for peak flavor."
+      }
+    ]
   },
   {
     "Id": "BestDeals5",
     "image": "/BestDeals/product-img6.png",
     "title": "Doritos Spicy Sweet Chili ",
-    "price": "$28.99",
-    "lessprice": "$38.99",
-    "review": "(11k)",
-    "sold": "20/30"
+    "price": "$11.49",
+    "lessprice": "$22.99",
+    "review": "(17k)",
+    "sold": "25/40",
+    "sale": "50%",
+    "rating": 4.6,
+    "description": "Get a protein boost with these delicious whole grain oats and honey bars from Nature Valley. Perfect for an on-the-go lifestyle.",
+    "offer": "50% Off Special",
+    "brand": "Nature Valley",
+    "features": [
+      "10g of protein per bar",
+      "Made with whole grain oats",
+      "No artificial flavors"
+    ],
+    "tags": [
+      "Snack Bar",
+      "Protein",
+      "Healthy",
+      "On-the-go"
+    ],
+    "specifications": {
+      "Product Type": "Snack Bar",
+      "Brand": "Nature Valley",
+      "Count": "6 bars",
+      "Protein": "10g per bar"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-lightning-fill",
+        "title": "Energy Boost",
+        "description": "A great source of energy for your day."
+      }
+    ]
   }
 ]

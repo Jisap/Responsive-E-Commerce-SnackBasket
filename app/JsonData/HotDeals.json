@@ -40,7 +40,36 @@
     "lessprice": "$20.99",
     "review": "(17k)",
     "sold": "22/40",
-    "sale": "30%"
+    "sale": "30%",
+    "rating": 4.8,
+    "description": "Fresh, wholesome whole milk from O Organics, enriched with Vitamin D. Perfect for your daily needs, from cereal to coffee.",
+    "offer": "New Item Discount",
+    "brand": "O Organics",
+    "features": [
+      "USDA Certified Organic",
+      "Grade A, Pasteurized",
+      "Excellent source of Calcium",
+      "Enriched with Vitamin D"
+    ],
+    "tags": [
+      "Organic",
+      "Milk",
+      "Dairy",
+      "New"
+    ],
+    "specifications": {
+      "Product Type": "Dairy",
+      "Brand": "O Organics",
+      "Size": "1 Gallon",
+      "Fat Content": "Whole Milk"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-sun",
+        "title": "Vitamin D Enriched",
+        "description": "Supports bone health."
+      }
+    ]
   },
   {
     "Id": "HotDeals3",
@@ -83,7 +112,34 @@
     "lessprice": "$30.99",
     "review": "(17k)",
     "sold": "8/15",
-    "sale": "50%"
+    "sale": "50%",
+    "rating": 4.6,
+    "description": "Pure, 100% orange juice with no pulp from Tropicana. A classic and refreshing way to start your day.",
+    "offer": "New Larger Size",
+    "brand": "Tropicana",
+    "features": [
+      "100% Orange Juice",
+      "No pulp",
+      "Not from concentrate"
+    ],
+    "tags": [
+      "Juice",
+      "Orange",
+      "Beverage"
+    ],
+    "specifications": {
+      "Product Type": "Juice",
+      "Brand": "Tropicana",
+      "Volume": "89 fl oz",
+      "Pulp": "None"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-brightness-high",
+        "title": "Excellent Source of Vitamin C",
+        "description": "A great way to get your daily vitamins."
+      }
+    ]
   },
   {
     "Id": "HotDeals5",
@@ -93,6 +149,33 @@
     "lessprice": "$28.99",
     "review": "(17k)",
     "sold": "20/30",
-    "sale": "New"
+    "sale": "New",
+    "rating": 4.6,
+    "description": "Pure, 100% orange juice with no pulp from Tropicana. A classic and refreshing way to start your day.",
+    "offer": "New Larger Size",
+    "brand": "Tropicana",
+    "features": [
+      "100% Orange Juice",
+      "No pulp",
+      "Not from concentrate"
+    ],
+    "tags": [
+      "Juice",
+      "Orange",
+      "Beverage"
+    ],
+    "specifications": {
+      "Product Type": "Juice",
+      "Brand": "Tropicana",
+      "Volume": "89 fl oz",
+      "Pulp": "None"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-brightness-high",
+        "title": "Excellent Source of Vitamin C",
+        "description": "A great way to get your daily vitamins."
+      }
+    ]
   }
 ]
