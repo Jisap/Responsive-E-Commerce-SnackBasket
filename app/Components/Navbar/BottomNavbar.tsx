@@ -19,7 +19,7 @@ const navLinks: NavLink[] = [
     href: "#",
     dropdown: [
       { label: "Cart", href: "/UI-Components/Pages/cart" },
-      { label: "Whislist", href: "/UI-Components/Pages/whislist" },
+      { label: "Whislist", href: "/UI-Components/Pages/whishlist" },
       { label: "Checkout", href: "/UI-Components/Pages/checkout" },
       { label: "Account", href: "/UI-Components/Pages/account" },
     ]

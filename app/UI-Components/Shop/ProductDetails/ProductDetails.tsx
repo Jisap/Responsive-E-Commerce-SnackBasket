@@ -280,7 +280,7 @@ const ProductDetails = ({ id, products }: Props) => {
             </div>}
           </div>
 
-          
+          {/* Faltarían añadir a las props de los archivos json "Nutrition Facts" y "More Details" */}
         </div>
       </div>
     </>

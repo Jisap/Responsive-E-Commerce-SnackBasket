@@ -1,20 +1,32 @@
 "use client"
 
 import Image from "next/image";
-import Hero1 from "@/public/hero-img1.png";
-import Hero2 from "@/public/hero-img2.png";
+import Hero1 from "@/public/hero-img1.png"; // Asegúrate de que estas rutas sean correctas
+import Hero2 from "@/public/hero-img2.png"; // Asegúrate de que estas rutas sean correctas
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from 'swiper';
 import "swiper/css";
 import "swiper/css/navigation";
-import { useRef } from "react";
-
+import { useRef, useState, useEffect } from "react";
+ 
 
 const Hero = () => {
 
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
+  useEffect(() => {
+    if (swiper && !swiper.destroyed) {
+      // @ts-ignore
+      swiper.params.navigation.prevEl = prevRef.current;
+      // @ts-ignore
+      swiper.params.navigation.nextEl = nextRef.current;
+      swiper.navigation.init();
+      swiper.navigation.update();
+    }
+  }, [swiper]);
 
   return (
     <div className="px-[8%] lg:px-[12%] py-5">
@@ -24,10 +36,12 @@ const Hero = () => {
           loop={true}
           modules={[Navigation]}
           navigation={{
-            nextEl: nextRef.current,
             prevEl: prevRef.current,
+            nextEl: nextRef.current,
           }}
+          onSwiper={setSwiper}
         >
+
           {/* Slide 1 */}
           <SwiperSlide>
             <div className="hero-wrap w-full flex flex-col lg:flex-row items-center justify-between">
