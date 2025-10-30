@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import bestSales from "@/app/JsonData/BestSales.json";
 import bestSaleBanner from "@/public/BestSales/special-snacks-img.png"
-import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
+import { useCartActions } from "@/app/hooks/useCartActions";
+import { ProductType } from '../../../types/types';
 
 
 const BestSales = () => {

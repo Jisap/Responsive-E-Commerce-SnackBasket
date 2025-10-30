@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
-type NavLink = {
-  label: string;
-  href: string;
-  dropdown?: { label: string; href: string }[];
-};
+import { NavLink } from '../../types/types';
 
 const navLinks: NavLink[] = [
   { label: "Home", href: "/" },

@@ -18,11 +18,7 @@ import Category8 from "@/public/Category8.png";
 import Category9 from "@/public/Category9.png";
 import Category10 from "@/public/Category10.png";
 
-type CategoryType = {
-  image: StaticImageData;
-  title: string;
-  products: string;
-};
+import { CategoryType } from '../../../types/types';
 
 const categories: CategoryType[] = [
   { image: Category1, title: "Vegetables", products: "125+ Products" },

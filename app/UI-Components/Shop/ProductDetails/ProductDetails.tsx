@@ -1,28 +1,14 @@
 "use client"
 
 import Image from "next/image"
-import { StaticImageData } from 'next/image';
-import Deals from "../../Index/Deals/Deals";
-import toast from "react-hot-toast";
-import { ProductType, CartItem } from '../../../types/types';
+import { ProductType, CartItem } from '@/app/types/types';
 import { useState } from "react";
 import satisfactionIcon from "@/public/satisfaction-icon.png";
 import { useCartActions } from '../../../hooks/useCartActions';
 
-interface ProductDetailsType {
-  Id: string;
-  image: string;
-  title: string;
-  price: string;
-  lessprice: string;
-  review: string;
-  sold?: string;
-  sale?: string;
-}
-
 interface Props {
   id?: string;
-  products: ProductDetailsType[];
+  products: ProductType[];
 
 }
 

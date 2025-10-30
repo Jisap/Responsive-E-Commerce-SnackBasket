@@ -4,10 +4,7 @@ import { useEffect, useState } from "react";
 import MiddleNavbar from "./MiddleNavbar";
 import BottomNavbar from "./BottomNavbar";
 import TopNavbar from "./TopNavbar";
-
-type CartItem = {
-  Id: string | number;
-};
+import { CartItem } from '../../types/types';
 
 const Navbar = () => {
 

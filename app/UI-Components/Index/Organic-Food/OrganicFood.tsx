@@ -6,8 +6,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import products from "@/app/JsonData/OrganicFood.json"
-import Link from 'next/link';
-import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
+import { useCartActions } from "@/app/hooks/useCartActions";
 
 const OrganicFood = () => {
 

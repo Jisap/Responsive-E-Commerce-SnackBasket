@@ -4,7 +4,8 @@ import Image from "next/image";
 
 import products from "@/app/JsonData/Recommend.json";
 import Link from "next/link";
-import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
+import { useCartActions } from "@/app/hooks/useCartActions";
+import { ProductType } from "@/app/types/types";
 
 const Recommended = () => {
   const { handleAddToCart, handleAddToWishlist } = useCartActions();

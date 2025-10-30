@@ -1,6 +1,7 @@
 import React from 'react'
+import { Benefit } from '../../../types/types';
 
-const benefitsData = [
+const benefitsData: Benefit[] = [
   {
     icon: 'bi-truck',
     title: 'Free Shipping',
@@ -23,7 +24,7 @@ const benefitsData = [
   },
 ];
 
-const BenefitItem = ({ icon, title, description }: { icon: string; title: string; description: string }) => (
+const BenefitItem = ({ icon, title, description }: Benefit) => (
   <div className='flex justify-center items-center gap-3 px-3 py-5 rounded-lg bg-prim-light'>
     <i className={`bi ${icon} text-2xl rounded-full bg-prim px-3 py-2 text-white`}></i>
     <div className='flex flex-col'>

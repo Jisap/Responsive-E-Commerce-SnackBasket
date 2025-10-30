@@ -3,18 +3,19 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useCartActions, ProductType as WishlistItem } from "@/app/hooks/useCartActions";
+import { useCartActions } from "@/app/hooks/useCartActions";
+import { ProductType } from '../../../types/types';
 
 const Wishlist = () => {
 
-  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]); // El tipo de WishlistItem es el mismo que el de useCartActions
+  const [wishlistItems, setWishlistItems] = useState<ProductType[]>([]); // El tipo de WishlistItem es el mismo que el de useCartActions
 
   useEffect(() => {
     const loadWishlist = () => {
       try {
-        const wishlist: WishlistItem[] = JSON.parse(         // Recuperamos el wishlist del localStorage
+        const wishlist: ProductType[] = JSON.parse(         // Recuperamos el wishlist del localStorage
           localStorage.getItem("wishlist") || "[]"
-        ) as WishlistItem[];
+        ) as ProductType[];
 
         setWishlistItems(wishlist);                          // Lo actualizamos en el estado
       } catch (error) {

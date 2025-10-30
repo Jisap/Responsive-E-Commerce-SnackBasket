@@ -6,7 +6,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useCartActions } from "@/app/hooks/useCartActions";
-
+import { ProductType } from '../../../types/types';
 
 
 const Products = () => {
@@ -21,23 +21,23 @@ const Products = () => {
   const [filteredProducts, setFilteredProducts] = useState(products)
 
   useEffect(() => {
-    let result = products; // Guardamos los products en una variable
+    let result = products;                                                // Guardamos los products en una variable
 
-    result= result.filter((p) => { // Filtramos los productos que cumplan con los criterios de búsqueda
+    result= result.filter((p) => {                                        // Filtramos los productos que cumplan con los criterios de búsqueda
       const productPrice = parseFloat(p.price.replace(/[^0-9.-]+/g, "")); // Obtenemos el precio de los productos
-      return productPrice <= price; // Comprobamos si el precio del producto es menor o igual al precio buscado
+      return productPrice <= price;                                       // Comprobamos si el precio del producto es menor o igual al precio buscado
     });
 
-    if(discount50){ // Si el filtro de descuento de 50% está activo
+    if(discount50){                                         // Si el filtro de descuento de 50% está activo
       result = result.filter((p) => p.sale.includes("50%")) // Filtramos los productos que tengan descuento de 50%
     }
 
-    if(discount30){ // Si el filtro de descuento de 30% está activo
+    if(discount30){                                         // Si el filtro de descuento de 30% está activo
       result = result.filter((p) => p.sale.includes("30%")) // Filtramos los productos que tengan descuento de 30%
     }
 
-    if(isNew){ // Si el filtro de nuevos productos está activo
-      result = result.filter((p) => p.sold === "New") // Filtramos los productos que son nuevos
+    if(isNew){                                              // Si el filtro de nuevos productos está activo
+      result = result.filter((p) => p.sold === "New")       // Filtramos los productos que son nuevos
     }
 
     setFilteredProducts(result); // Actualizamos los resultados filtrados

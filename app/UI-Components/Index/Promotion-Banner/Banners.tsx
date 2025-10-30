@@ -3,12 +3,10 @@ import promotionBanner1 from "@/public/promotional-banner-img1.png"
 import promotionBanner2 from "@/public/promotional-banner-img2.png"
 import promotionBanner3 from "@/public/promotional-banner-img3.png"
 import promotionBanner4 from "@/public/promotional-banner-img4.png"
+import { BannerType } from "@/app/types/types"
 
 
-type BannerType = {
-  image: StaticImageData;
-  heading: string;
-}
+
 
 const banners: BannerType[] = [
   { image: promotionBanner1, heading: "Everyday\nFresh Meat" },

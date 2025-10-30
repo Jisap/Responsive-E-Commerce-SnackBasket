@@ -3,15 +3,7 @@
 import Image from "next/image";
 import vendorsData from "@/app/JsonData/Vendors.json" 
 import { useMemo } from "react";
-
-type VendorType = {
-  id: number;
-  title: string;
-  time: string;
-  off: string;
-  vendorMain: string;
-  vendors: string[];
-};
+import { VendorType } from '../../../types/types';
 
 export default function Vendors() {
   const bgColors = useMemo(

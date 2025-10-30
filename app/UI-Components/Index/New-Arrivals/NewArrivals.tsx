@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import products from "@/app/JsonData/NewArrivals.json"
-import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
+import { useCartActions } from "@/app/hooks/useCartActions";
 
 
 const NewArrivals = () => {

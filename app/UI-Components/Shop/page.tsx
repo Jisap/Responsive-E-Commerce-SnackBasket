@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 
-import { ProductType } from '@/app/hooks/useCartActions';
+
 import React, { useMemo } from 'react'
 import Arrivals from "@/app/JsonData/NewArrivals.json";
 import BestDeals from "@/app/JsonData/BestDeals.json";
@@ -12,6 +12,7 @@ import Recommend from "@/app/JsonData/Recommend.json";
 import ShortProducts from "@/app/JsonData/ShortProducts.json";
 import ProductDetails from './ProductDetails/ProductDetails';
 import Products from './Products/Products';
+import { ProductType } from '@/app/types/types';
 
 const ShopPage = () => {
 

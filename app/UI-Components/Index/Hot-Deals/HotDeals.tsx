@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import hotDealBanner from "@/public/hot-deals-img.png";
 import products from "@/app/JsonData/HotDeals.json"; 
-import { useCartActions, ProductType } from "@/app/hooks/useCartActions";
+import { useCartActions} from "@/app/hooks/useCartActions";
 
 const HotDeals = () => {
 

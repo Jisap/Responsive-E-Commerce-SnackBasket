@@ -11,12 +11,6 @@ import Deal1 from "@/public/Deals-img1.png";
 import Deal2 from "@/public/Deals-img2.png";
 
 import { useCartActions } from "@/app/hooks/useCartActions";
-type DealItem = {
-  image: StaticImageData;
-  title: string;
-  description: string;
-  className?: string;
-};
 
 const dealsData: DealItem[] = [
   {
@@ -39,6 +33,7 @@ const dealsData: DealItem[] = [
 
 import products from "@/app/JsonData/BestDeals.json";
 import Link from "next/link";
+import { DealItem } from "@/app/types/types";
 
 const Deals = () => {
 
