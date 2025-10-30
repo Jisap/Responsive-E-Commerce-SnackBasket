@@ -6,7 +6,30 @@
     "price": "$14.99",
     "lessprice": "$28.99",
     "review": "(17k)",
-    "sold": "18/35"
+    "sold": "18/35",
+    "rating": 4.2,
+    "description": "A perfect mix of fresh eggplants and cucumbers for your salads and dishes. Sourced from local farms to ensure the best quality.",
+    "offer": "Weekend Deal: 20% Off",
+    "brand": "FarmFresh",
+    "features": [
+      "Locally sourced",
+      "Crisp and fresh",
+      "Ideal for salads and cooking"
+    ],
+    "tags": ["Vegetable Mix", "Fresh", "Local"],
+    "specifications": {
+      "Product Type": "Fresh Vegetables",
+      "Brand": "FarmFresh",
+      "Weight": "500g",
+      "Origin": "Local Farms"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-leaf",
+        "title": "Farm to Table",
+        "description": "Directly from our trusted farmers."
+      }
+    ]
   },
   {
     "Id": "BestDeals2",
@@ -15,7 +38,30 @@
     "price": "$12.99",
     "lessprice": "$22.99",
     "review": "(12k)",
-    "sold": "22/40"
+    "sold": "22/40",
+    "rating": 4.5,
+    "description": "Fresh organic beets with their greens, perfect for roasting, salads, or juicing. Rich in nutrients and flavor.",
+    "offer": "Seasonal Special",
+    "brand": "GreenHarvest Organics",
+    "features": [
+      "Certified Organic",
+      "Includes edible greens",
+      "High in Iron & Folate"
+    ],
+    "tags": ["Organic", "Root Vegetable", "Fresh"],
+    "specifications": {
+      "Product Type": "Organic Vegetables",
+      "Brand": "GreenHarvest Organics",
+      "Weight": "1 lb (450g)",
+      "Harvest": "Seasonal"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-heart-pulse",
+        "title": "Heart Healthy",
+        "description": "Supports cardiovascular wellness."
+      }
+    ]
   },
   {
     "Id": "BestDeals3",

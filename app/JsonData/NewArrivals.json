@@ -7,7 +7,31 @@
     "lessprice": "$30.99",
     "review": "(17k)",
     "sold": "18/35",
-    "sale": "35%"
+    "sale": "35%",
+    "rating": 4.8,
+    "description": "Fresh and crisp broccoli from Taylor Farms, perfect for a healthy meal. Packed with vitamins and minerals to boost your day.",
+    "offer": "Special Offer: Buy 2 get 1 free",
+    "brand": "Taylor Farms",
+    "features": [
+      "100% Organic",
+      "Rich in Vitamin C and K",
+      "Washed and ready to eat",
+      "Sustainably farmed"
+    ],
+    "tags": ["Fresh", "Vegetable", "Organic"],
+    "specifications": {
+      "Product Type": "Vegetable",
+      "Brand": "Taylor Farms",
+      "Net Weight": "300g",
+      "Origin": "California, USA"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-truck",
+        "title": "Next-Day Delivery",
+        "description": "Freshness delivered to your door."
+      }
+    ]
   },
   {
     "Id": "Arrivals2",
@@ -17,7 +41,30 @@
     "lessprice": "$29.99",
     "review": "(17k)",
     "sold": "22/40",
-    "sale": "30%"
+    "sale": "30%",
+    "rating": 4.0,
+    "description": "Conveniently pre-cut broccoli florets, ready for cooking or snacking. A great source of fiber and vitamins.",
+    "offer": "Limited Stock: 30% Off",
+    "brand": "Taylor Farms",
+    "features": [
+      "Pre-washed & cut",
+      "High in Vitamin C",
+      "Versatile for meals"
+    ],
+    "tags": ["Vegetable", "Convenient", "Healthy"],
+    "specifications": {
+      "Product Type": "Pre-cut Vegetables",
+      "Brand": "Taylor Farms",
+      "Net Weight": "450g",
+      "Preparation": "Ready to cook"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-lightning-charge",
+        "title": "Quick Prep",
+        "description": "Save time in the kitchen."
+      }
+    ]
   },
   {
     "Id": "Arrivals3",

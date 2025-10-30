@@ -38,6 +38,16 @@ export type ProductType = {
   sold?: string;
   sale?: string;
   quantity?: number; // cantidad estándar
+  rating?: number; // e.g., 4.5
+  description?: string; // El texto largo de descripción
+  offer?: string; // e.g., "Special Offer: 5 Days..."
+  brand?: string; // e.g., "Lay's"
+  features?: string[]; // Lista de características como "Gluten free"
+  tags?: string[]; // e.g., ["Made in USA", "Ready to Eat"]
+  specifications?: {
+    [key: string]: string | undefined; // Para "Product Type", "Item Code", etc.
+  };
+  benefits?: Benefit[]; // Para "Fast Delivery", "Warranty", etc.
 };
 
 export type CartItem = ProductType & {

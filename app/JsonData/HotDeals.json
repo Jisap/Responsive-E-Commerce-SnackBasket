@@ -7,7 +7,30 @@
     "lessprice": "$28.99",
     "review": "(17k)",
     "sold": "18/35",
-    "sale": "35%"
+    "sale": "35%",
+    "rating": 4.9,
+    "description": "Delicious unsweetened almond milk from Marcel's Modern Pantry. A versatile and healthy dairy alternative for all your needs.",
+    "offer": "Hot Deal: Save 35% Today!",
+    "brand": "Marcel's Modern Pantry",
+    "features": [
+      "Unsweetened & creamy",
+      "Excellent for coffee & smoothies",
+      "Lactose-free & Vegan"
+    ],
+    "tags": ["Almond Milk", "Dairy-Free", "Hot Deal"],
+    "specifications": {
+      "Product Type": "Plant-Based Beverage",
+      "Brand": "Marcel's Modern Pantry",
+      "Volume": "1 Liter",
+      "Dietary": "Vegan, Gluten-Free"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-fire",
+        "title": "Limited Time Offer",
+        "description": "Grab this deal before it's gone!"
+      }
+    ]
   },
   {
     "Id": "HotDeals2",
@@ -27,7 +50,30 @@
     "lessprice": "$32.99",
     "review": "(17k)",
     "sold": "15/25",
-    "sale": "New"
+    "sale": "New",
+    "rating": 4.6,
+    "description": "Hearty organic bread packed with whole grains and seeds. Perfect for a nutritious breakfast or sandwich.",
+    "offer": "Freshly Baked - New!",
+    "brand": "Nature's Bake",
+    "features": [
+      "100% Whole Grains",
+      "Rich in Fiber",
+      "No Artificial Preservatives"
+    ],
+    "tags": ["Organic", "Bread", "Whole Grain"],
+    "specifications": {
+      "Product Type": "Organic Bread",
+      "Brand": "Nature's Bake",
+      "Weight": "600g",
+      "Ingredients": "Whole wheat flour, various seeds, yeast, salt"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-seedling",
+        "title": "Nutrient-Rich",
+        "description": "Packed with essential fibers and vitamins."
+      }
+    ]
   },
   {
     "Id": "HotDeals4",

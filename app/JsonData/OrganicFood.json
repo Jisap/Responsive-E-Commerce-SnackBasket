@@ -7,7 +7,30 @@
     "lessprice": "$28.99",
     "review": "(17k)",
     "sold": "18/35",
-    "sale": "35%"
+    "sale": "35%",
+    "rating": 4.7,
+    "description": "Premium organic broccoli and fresh fruits from Taylor Farms, ensuring a healthy and delicious choice for your family.",
+    "offer": "Organic Special: 35% Off",
+    "brand": "Taylor Farms Organic",
+    "features": [
+      "100% Certified Organic",
+      "Pesticide-free",
+      "Farm-fresh quality"
+    ],
+    "tags": ["Organic", "Fruits", "Vegetables"],
+    "specifications": {
+      "Product Type": "Organic Mixed Produce",
+      "Brand": "Taylor Farms Organic",
+      "Net Weight": "500g",
+      "Certifications": "USDA Organic"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-envira",
+        "title": "Eco-Friendly",
+        "description": "Sustainably grown and harvested."
+      }
+    ]
   },
   {
     "Id": "Organic2",
@@ -27,7 +50,30 @@
     "lessprice": "$32.99",
     "review": "(17k)",
     "sold": "15/25",
-    "sale": "New"
+    "sale": "New",
+    "rating": 4.3,
+    "description": "Freshly picked organic broccoli florets, perfect for a quick and healthy addition to any meal. High in vitamins and minerals.",
+    "offer": "New Organic Arrival",
+    "brand": "Taylor Farms Organic",
+    "features": [
+      "Pre-cut & ready",
+      "Excellent source of Vitamin K",
+      "Versatile for cooking"
+    ],
+    "tags": ["Organic", "Vegetables", "Convenient"],
+    "specifications": {
+      "Product Type": "Organic Broccoli Florets",
+      "Brand": "Taylor Farms Organic",
+      "Net Weight": "400g",
+      "Storage": "Refrigerate after opening"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-patch-check",
+        "title": "Quality Assured",
+        "description": "Certified organic and fresh."
+      }
+    ]
   },
   {
     "Id": "Organic4",

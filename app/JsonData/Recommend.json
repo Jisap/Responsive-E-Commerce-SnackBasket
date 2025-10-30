@@ -7,7 +7,32 @@
     "lessprice": "$24.99",
     "review": "(17k)",
     "sold": "18/35",
-    "sale": ""
+    "sale": "",
+    "rating": 4.9,
+    "description": "Boost your immune system with our C-500 Antioxidant Protect supplement. Each tablet is packed with Vitamin C to help you stay healthy.",
+    "offer": "Limited Time: 15% Off Coupon Inside",
+    "brand": "HealthPlus",
+    "features": [
+      "500mg of Vitamin C per tablet",
+      "Supports immune health",
+      "Powerful antioxidant protection",
+      "90 tablets per bottle"
+    ],
+    "tags": ["Supplement", "Health", "Vitamin C"],
+    "specifications": {
+      "Product Type": "Dietary Supplement",
+      "Brand": "HealthPlus",
+      "Form": "Tablets",
+      "Count": "90",
+      "Item Code": "HP-C500-90"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-shield-check",
+        "title": "Quality Assured",
+        "description": "Lab-tested for purity and potency."
+      }
+    ]
   },
   {
     "Id": "Recommend2",
@@ -17,7 +42,31 @@
     "lessprice": "$33.99",
     "review": "(17k)",
     "sold": "22/40",
-    "sale": "50%"
+    "sale": "50%",
+    "rating": 4.7,
+    "description": "Unsweetened almond milk from Marcel's Modern Pantry. A delicious dairy-free alternative for your coffee, cereal, or smoothies.",
+    "offer": "Half Price Sale!",
+    "brand": "Marcel's Modern Pantry",
+    "features": [
+      "Dairy-free",
+      "Unsweetened",
+      "Vegan friendly",
+      "Source of Vitamin E"
+    ],
+    "tags": ["Almond Milk", "Vegan", "Beverage"],
+    "specifications": {
+      "Product Type": "Plant-based Milk",
+      "Brand": "Marcel's Modern Pantry",
+      "Volume": "1.89 L",
+      "Allergens": "Contains Almonds"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-flower1",
+        "title": "Plant-Based Goodness",
+        "description": "A healthy choice for you and the planet."
+      }
+    ]
   },
   {
     "Id": "Recommend3",
@@ -27,7 +76,31 @@
     "lessprice": "$26.99",
     "review": "(17k)",
     "sold": "20/32",
-    "sale": "New"
+    "sale": "New",
+    "rating": 4.8,
+    "description": "Fresh, wholesome whole milk from O Organics, enriched with Vitamin D. Perfect for your daily needs, from cereal to coffee.",
+    "offer": "New Item Discount",
+    "brand": "O Organics",
+    "features": [
+      "USDA Certified Organic",
+      "Grade A, Pasteurized",
+      "Excellent source of Calcium",
+      "Enriched with Vitamin D"
+    ],
+    "tags": ["Organic", "Milk", "Dairy", "New"],
+    "specifications": {
+      "Product Type": "Dairy",
+      "Brand": "O Organics",
+      "Size": "1 Gallon",
+      "Fat Content": "Whole Milk"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-sun",
+        "title": "Vitamin D Enriched",
+        "description": "Supports bone health."
+      }
+    ]
   },
   {
     "Id": "Recommend4",
@@ -37,7 +110,30 @@
     "lessprice": "$17.99",
     "review": "(17k)",
     "sold": "15/25",
-    "sale": "35%"
+    "sale": "35%",
+    "rating": 4.7,
+    "description": "A hearty and nutritious organic bread packed with a blend of whole grains and seeds. Perfect for sandwiches or toast.",
+    "offer": "35% Off This Week",
+    "brand": "Nature's Own",
+    "features": [
+      "Made with 100% whole grains",
+      "Good source of fiber",
+      "No artificial preservatives or colors"
+    ],
+    "tags": ["Bread", "Organic", "Whole Grain", "Bakery"],
+    "specifications": {
+      "Product Type": "Bakery",
+      "Brand": "Nature's Own",
+      "Weight": "24 oz",
+      "Allergens": "Contains Wheat"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-grain",
+        "title": "High in Fiber",
+        "description": "A great choice for a balanced diet."
+      }
+    ]
   },
   {
     "Id": "Recommend5",
@@ -47,7 +143,30 @@
     "lessprice": "$21.99",
     "review": "(17k)",
     "sold": "18/35",
-    "sale": ""
+    "sale": "",
+    "rating": 4.4,
+    "description": "Creamy and delicious low-fat strawberry yogurt from Lucerne. A perfect snack for any time of the day.",
+    "offer": "Multi-buy discount available",
+    "brand": "Lucerne",
+    "features": [
+      "Low-fat",
+      "Made with real fruit",
+      "Good source of protein"
+    ],
+    "tags": ["Yogurt", "Dairy", "Snack", "Strawberry"],
+    "specifications": {
+      "Product Type": "Yogurt",
+      "Brand": "Lucerne",
+      "Flavor": "Strawberry",
+      "Size": "32 oz"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-activity",
+        "title": "Probiotic Cultures",
+        "description": "Supports digestive health."
+      }
+    ]
   },
   {
     "Id": "Recommend6",
@@ -57,7 +176,30 @@
     "lessprice": "$22.99",
     "review": "(17k)",
     "sold": "25/40",
-    "sale": "50%"
+    "sale": "50%",
+    "rating": 4.6,
+    "description": "Get a protein boost with these delicious whole grain oats and honey bars from Nature Valley. Perfect for an on-the-go lifestyle.",
+    "offer": "50% Off Special",
+    "brand": "Nature Valley",
+    "features": [
+      "10g of protein per bar",
+      "Made with whole grain oats",
+      "No artificial flavors"
+    ],
+    "tags": ["Snack Bar", "Protein", "Healthy", "On-the-go"],
+    "specifications": {
+      "Product Type": "Snack Bar",
+      "Brand": "Nature Valley",
+      "Count": "6 bars",
+      "Protein": "10g per bar"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-lightning-fill",
+        "title": "Energy Boost",
+        "description": "A great source of energy for your day."
+      }
+    ]
   },
   {
     "Id": "Recommend7",
@@ -67,7 +209,30 @@
     "lessprice": "$15.99",
     "review": "(17k)",
     "sold": "30/50",
-    "sale": "New"
+    "sale": "New",
+    "rating": 4.9,
+    "description": "Classic, naturally sweet California raisins from Sun-Maid. A timeless snack for all ages.",
+    "offer": "New Arrival",
+    "brand": "Sun-Maid",
+    "features": [
+      "100% Natural California Raisins",
+      "No added sugar",
+      "Fat-free"
+    ],
+    "tags": ["Dried Fruit", "Snack", "Natural"],
+    "specifications": {
+      "Product Type": "Dried Fruit",
+      "Brand": "Sun-Maid",
+      "Origin": "California, USA",
+      "Weight": "22.58 oz"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-sun",
+        "title": "Sun-Dried",
+        "description": "Naturally ripened and dried for peak flavor."
+      }
+    ]
   },
   {
     "Id": "Recommend8",
@@ -77,7 +242,30 @@
     "lessprice": "$10.99",
     "review": "(17k)",
     "sold": "12/20",
-    "sale": "50%"
+    "sale": "50%",
+    "rating": 4.3,
+    "description": "Refreshing and hydrating fresh watermelon juice. Made from 100% real watermelon with no added sugar.",
+    "offer": "Half-Price Summer Special",
+    "brand": "Freshly Squeezed",
+    "features": [
+      "100% Watermelon Juice",
+      "No added sugar or preservatives",
+      "Hydrating and refreshing"
+    ],
+    "tags": ["Juice", "Beverage", "Fresh", "Watermelon"],
+    "specifications": {
+      "Product Type": "Fresh Juice",
+      "Brand": "Freshly Squeezed",
+      "Volume": "52 fl oz",
+      "Serving": "Keep refrigerated"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-droplet-half",
+        "title": "Hydrating",
+        "description": "A great way to stay hydrated."
+      }
+    ]
   },
   {
     "Id": "Recommend9",
@@ -87,7 +275,30 @@
     "lessprice": "$29.99",
     "review": "(17k)",
     "sold": "14/28",
-    "sale": "New"
+    "sale": "New",
+    "rating": 4.8,
+    "description": "A delicious blend of sharp, medium, and white cheddar cheeses from Tillamook. Perfect for melting, shredding, or snacking.",
+    "offer": "New Cheese Blend",
+    "brand": "Tillamook",
+    "features": [
+      "Blend of three cheddars",
+      "Aged over 60 days",
+      "Naturally aged, no artificial ingredients"
+    ],
+    "tags": ["Cheese", "Cheddar", "Dairy"],
+    "specifications": {
+      "Product Type": "Cheese",
+      "Brand": "Tillamook",
+      "Form": "Shredded",
+      "Weight": "8 oz"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-award",
+        "title": "Award-Winning Flavor",
+        "description": "Recognized for its exceptional taste."
+      }
+    ]
   },
   {
     "Id": "Recommend10",
@@ -97,7 +308,30 @@
     "lessprice": "$37.99",
     "review": "(17k)",
     "sold": "20/40",
-    "sale": "50%"
+    "sale": "50%",
+    "rating": 4.7,
+    "description": "Responsibly farmed Atlantic Salmon from Good & Gather. A healthy and delicious choice for any meal, rich in Omega-3s.",
+    "offer": "50% Off Fresh Catch",
+    "brand": "Good & Gather",
+    "features": [
+      "Responsibly farmed",
+      "Rich in Omega-3 fatty acids",
+      "Boneless and skinless portions"
+    ],
+    "tags": ["Seafood", "Salmon", "Fresh"],
+    "specifications": {
+      "Product Type": "Seafood",
+      "Brand": "Good & Gather",
+      "Origin": "Farmed",
+      "Weight": "1 lb"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-water",
+        "title": "Ocean Wise",
+        "description": "Sustainably sourced seafood."
+      }
+    ]
   },
   {
     "Id": "Recommend11",
@@ -107,7 +341,30 @@
     "lessprice": "$42.99",
     "review": "(17k)",
     "sold": "18/30",
-    "sale": "50%"
+    "sale": "50%",
+    "rating": 4.5,
+    "description": "Large raw shrimp, peeled, deveined, and tail-off for your convenience. Perfect for scampi, grilling, or stir-fries.",
+    "offer": "50% Off Seafood",
+    "brand": "Market Pantry",
+    "features": [
+      "Peeled & deveined",
+      "Tail-off",
+      "Ready to cook"
+    ],
+    "tags": ["Shrimp", "Seafood", "Frozen"],
+    "specifications": {
+      "Product Type": "Frozen Seafood",
+      "Brand": "Market Pantry",
+      "Count": "41-50 per lb",
+      "Weight": "12 oz"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-clock-history",
+        "title": "Quick to Cook",
+        "description": "A fast and easy meal solution."
+      }
+    ]
   },
   {
     "Id": "Recommend12",
@@ -117,6 +374,29 @@
     "lessprice": "$19.99",
     "review": "(17k)",
     "sold": "25/35",
-    "sale": "New"
+    "sale": "New",
+    "rating": 4.6,
+    "description": "Pure, 100% orange juice with no pulp from Tropicana. A classic and refreshing way to start your day.",
+    "offer": "New Larger Size",
+    "brand": "Tropicana",
+    "features": [
+      "100% Orange Juice",
+      "No pulp",
+      "Not from concentrate"
+    ],
+    "tags": ["Juice", "Orange", "Beverage"],
+    "specifications": {
+      "Product Type": "Juice",
+      "Brand": "Tropicana",
+      "Volume": "89 fl oz",
+      "Pulp": "None"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-brightness-high",
+        "title": "Excellent Source of Vitamin C",
+        "description": "A great way to get your daily vitamins."
+      }
+    ]
   }
 ]

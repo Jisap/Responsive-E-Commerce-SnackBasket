@@ -7,7 +7,30 @@
     "lessprice": "$28.99",
     "review": "(17k)",
     "sold": "18/35",
-    "sale": "35%"
+    "sale": "35%",
+    "rating": 4.6,
+    "description": "Enjoy the best of both worlds with this mix of Taylor Farms broccoli and assorted fresh fruits. A healthy and delicious combination.",
+    "offer": "Best Seller Discount",
+    "brand": "Taylor Farms",
+    "features": [
+      "Broccoli and fruit mix",
+      "High in fiber and vitamins",
+      "Ready to eat snack pack"
+    ],
+    "tags": ["Snack", "Healthy", "Fruit", "Vegetable"],
+    "specifications": {
+      "Product Type": "Snack Pack",
+      "Brand": "Taylor Farms",
+      "Size": "250g",
+      "Item Code": "TF-BF-250"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-star",
+        "title": "Customer Favorite",
+        "description": "One of our top-selling items."
+      }
+    ]
   },
   {
     "Id": "BestSales2",
@@ -17,7 +40,30 @@
     "lessprice": "$20.99",
     "review": "(17k)",
     "sold": "22/40",
-    "sale": "30%"
+    "sale": "30%",
+    "rating": 4.1,
+    "description": "A convenient mix of Taylor Farms broccoli florets and selected fruits, perfect for a quick, healthy snack or meal addition.",
+    "offer": "Limited Time Offer",
+    "brand": "Taylor Farms",
+    "features": [
+      "Ready-to-eat",
+      "Good source of vitamins",
+      "Versatile snack"
+    ],
+    "tags": ["Snack", "Healthy", "Mixed Produce"],
+    "specifications": {
+      "Product Type": "Mixed Produce Pack",
+      "Brand": "Taylor Farms",
+      "Net Weight": "350g",
+      "Storage": "Keep Refrigerated"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-basket",
+        "title": "Freshness Guaranteed",
+        "description": "Delivered fresh to your door."
+      }
+    ]
   },
   {
     "Id": "BestSales3",

@@ -12,6 +12,54 @@ interface Props {
 
 }
 
+const StarRating = ({ rating, review }: { rating: number; review: string }) => {
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+  return (
+    <span className="flex items-center border-b border-gray-300 pb-3 text-yellow-500 text-md mt-4">
+      {[...Array(fullStars)].map((_, i) => <i key={`full-${i}`} className="bi bi-star-fill me-1"></i>)}
+      {halfStar && <i className="bi bi-star-half me-1"></i>}
+      {[...Array(emptyStars)].map((_, i) => <i key={`empty-${i}`} className="bi bi-star me-1"></i>)}
+      &nbsp;<span className="text-black font-medium">{rating} star Rating {review}</span>
+    </span>
+  );
+};
+
+const defaultBenefits = [
+  {
+    icon: "bi bi-truck",
+    title: "Fast Delivery",
+    description: "Lightning-fast shipping, guaranteed.",
+  },
+  {
+    icon: "bi bi-arrow-return-left",
+    title: "Free 30-day returns",
+    description: "Shop risk-free with easy returns.",
+  },
+  {
+    icon: "bi bi-bag-check",
+    title: "Pickup available",
+    description: "Usually ready in 24 hours.",
+  },
+  {
+    icon: "bi bi-credit-card",
+    title: "Payment",
+    description: "Secure options: Card, Google Pay, COD.",
+  },
+  {
+    icon: "bi bi-clipboard-heart",
+    title: "Warranty",
+    description: "The Consumer Protection Act does not provide for the return of this product of proper quality.",
+  },
+  {
+    icon: "bi bi-box2-heart",
+    title: "Packaging",
+    description: "Research & development value proposition graphical user interface investor.",
+  },
+];
+
 const ProductDetails = ({ id, products }: Props) => {
 
   const { handleAddToCart, handleAddToWishlist } = useCartActions();
@@ -71,7 +119,7 @@ const ProductDetails = ({ id, products }: Props) => {
 
           {/* Imagen + Info */}
           <div className="w-full lg:w-1/1 flex sticky top-2/12 left-0 h-fit justify-between">
-            {/* Image (derecha)*/}
+            {/* Image (izquierda)*/}
             <div className="border border-gray-300 rounded-2xl">
               <Image
                 src={product.image}
@@ -82,32 +130,24 @@ const ProductDetails = ({ id, products }: Props) => {
               />
             </div>
 
-            {/* Product Info (izquierda) */}
+            {/* Product Info (central) */}
             <div className="w-full lg:w-1/2 flex flex-col">
               <h2 className="Unbounded text-3xl">
                 {product.title}
               </h2>
 
-              <span className="flex items-center border-b border-gray-300 pb-3 text-yellow-500 text-md mt-4">
-                <i className="bi bi-star-fill me-1"></i>
-                <i className="bi bi-star-fill me-1"></i>
-                <i className="bi bi-star-fill me-1"></i>
-                <i className="bi bi-star-fill me-1"></i>
-                <i className="bi bi-star-fill me-1"></i>
-                &nbsp;
-                <span className="text-black font-medium"> 4.5 star Rating {product.review}</span>
-              </span>
+              {product.rating && <StarRating rating={product.rating} review={product.review} />}
 
-              <p className="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, excepturi magni? Nostrum rerum, culpa magnam assumenda est cupiditate iusto obcaecati officiis dolor dignissimos ex non amet aperiam ipsam tempore quos?</p>
+              {product.description && <p className="my-3">{product.description}</p>}
 
               <div className="flex items-center gap-2 border-b border-gray-300 pb-3">
                 <h3 className="Unbounded text-2xl">{product.price}</h3>
                 <del className="Unbounded text-gray-500">{product.lessprice}</del>
               </div>
 
-              <span className="my-3 bg-[#97ffc971] px-2 py-3 rounded-md">
-                Special Offer: <strong> 5 Days </strong> Remains untill the end of the offer
-              </span>
+              {product.offer && <span className="my-3 bg-[#97ffc971] px-2 py-3 rounded-md">
+                {product.offer}
+              </span>}
 
               <div className="mt-5">
                 <h3 className="mb-3 font-medium">Quantity</h3>
@@ -147,6 +187,7 @@ const ProductDetails = ({ id, products }: Props) => {
             </div>
           </div>
 
+          {/* Información columna derecha */}
           <div className="w-full lg:w-1/2">
             <div className="border border-gray-300 rounded-md">
               <div className="p-3">
@@ -163,64 +204,32 @@ const ProductDetails = ({ id, products }: Props) => {
               </div>
 
               <div className="bg-[#97ffc871]">
-                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
-                  <i className="bi bi-truck mr-2 px-3 py-2 rounded-full text-prim"></i>
-
-                  <div className="flex flex-col">
-                    <h3 className="Unbounded">Fast Delivery</h3>
-                    <p className="text-gray-600">Lightning-fast shipping, guaranteed.</p>
+                {/* Beneficios específicos del producto desde el JSON */}
+                {product.benefits?.map((benefit, index) => (
+                  <div key={index} className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                    <i className={`${benefit.icon} mr-2 px-3 py-2 rounded-full text-prim`}></i>
+                    <div className="flex flex-col">
+                      <h3 className="Unbounded">{benefit.title}</h3>
+                      <p className="text-gray-600">{benefit.description}</p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
-                  <i className="bi bi-arrow-return-left mr-2 px-3 py-2 rounded-full text-prim"></i>
-
-                  <div className="flex flex-col">
-                    <h3 className="Unbounded">Free 30-day returns</h3>
-                    <p className="text-gray-600">Shop risk-free with easy returns.</p>
+                ))}
+                {/* Beneficios por defecto para todos los productos */}
+                {defaultBenefits.map((benefit, index) => (
+                  <div key={`default-${index}`} className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
+                    <i className={`${benefit.icon} mr-2 px-3 py-2 rounded-full text-prim`}></i>
+                    <div className="flex flex-col">
+                      <h3 className="Unbounded">{benefit.title}</h3>
+                      <p className="text-gray-600">{benefit.description}</p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
-                  <i className="bi bi-bag-check mr-2 px-3 py-2 rounded-full text-prim"></i>
-
-                  <div className="flex flex-col">
-                    <h3 className="Unbounded">Pickup available at Shop location</h3>
-                    <p className="text-gray-600">Usually ready in 24 hours.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
-                  <i className="bi bi-bag-check mr-2 px-3 py-2 rounded-full text-prim"></i>
-
-                  <div className="flex flex-col">
-                    <h3 className="Unbounded">Payment</h3>
-                    <p className="text-gray-600">Payment upon receipt of goods, Payment by card in the department, Google Pay, Online card.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
-                  <i className="bi bi-clipboard-heart mr-2 px-3 py-2 rounded-full text-prim"></i>
-
-                  <div className="flex flex-col">
-                    <h3 className="Unbounded">Warranty</h3>
-                    <p className="text-gray-600">The Consumer Protection Act does not provide for the return of this product of proper quality.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center px-7 py-4 border-b border-gray-300 gap-3">
-                  <i className="bi bi-box2-heart mr-2 px-3 py-2 rounded-full text-prim"></i>
-
-                  <div className="flex flex-col">
-                    <h3 className="Unbounded">Packaging</h3>
-                    <p className="text-gray-600">Research & development value proposition graphical user interface investor..</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
+        {/* Información de la descripción */}
         <div className="border border-gray-300 mt-10 rounded-lg">
           <div className="flex justify-between items-center border-b p-3 pb-5 border-gray-300 gap-2">
             <span className="bg-prim px-4 py-2 text-white font-semibold text-xl rounded-full">
@@ -238,69 +247,37 @@ const ProductDetails = ({ id, products }: Props) => {
 
           <div className="p-5 mt-5">
             <h2 className="Unbounded text-2xl mb-3">Product Description</h2>
-            
-            <p className="text-gray-500 mb-1">
-              Wherever celebrations and good times happen, the LAY'S brand will be there just as it has been for more than 75 years. With flavors almost as rich as our history, we have a chip or crisp flavor guaranteed to bring a smile on your face.
-            </p>
-            <p className="text-gray-500 mb-1">
-              Morbi ut sapien vitae odio accumsan gravida. Morbi vitae erat auctor, eleifend nunc a, lobortis neque. viverra. Maecenas lacus odio, feugiat eu nunc sit amet, maximus sagittis dolor.
-            </p>
-            <p className="text-gray-500 mb-1">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius perferendis perspiciatis temporibus voluptate, nemo quod dignissimos nam molestias nulla a officia eos, voluptatem beatae provident, dolorum suscipit aspernatur doloribus. Ut.
-            </p>
 
-            <div className="mt-5 ps-5">
-              <p className="text-gray-500 mb-1">
-                <span>•</span> 8.0 oz. bag of LAY'S Classic Potato Chips
-              </p>
-              <p className="text-gray-500 mb-1">
-                <span>•</span> Tasty LAY's potato chips are a great snack
-              </p>
-              <p className="text-gray-500 mb-1">
-                <span>•</span> Includes three ingredients: potatoes, oil, and salt
-              </p>
-              <p className="text-gray-500 mb-1">
-                <span>•</span> Gluten free product
-              </p>
-            </div>
+            {product.description && <p className="text-gray-500 mb-1">{product.description}</p>}
 
-            <div className="mt-3">
-              <p className="text-gray-500 mb-1">Made in USA</p>
-              <p className="text-gray-500 mb-1">Ready to Eat</p>
-            </div>
+            {product.features && (
+              <div className="mt-5 ps-5">
+                {product.features.map((feature, index) => (
+                  <p key={index} className="text-gray-500 mb-1">
+                    <span>•</span> {feature}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {product.tags && (
+              <div className="mt-3">
+                {product.tags.map((tag, index) => (
+                  <p key={index} className="text-gray-500 mb-1">{tag}</p>
+                ))}
+              </div>
+            )}
 
             <h2 className="Unbounded text-2xl mb-3 mt-8">Product Specifications</h2>
 
-            <div>
-              <p className="text-gray-500 mb-2">
-                <i className="bi bi-check-circle text-prim mr-1"></i>
-                <span className="font-semibold text-black">Product Type:</span> Chips & Dips
-              </p>
-              <p className="text-gray-500 mb-2">
-                <i className="bi bi-check-circle text-prim mr-1"></i>
-                <span className="font-semibold text-black">Product Name:</span> {product.title}
-              </p>
-              <p className="text-gray-500 mb-2">
-                <i className="bi bi-check-circle text-prim mr-1"></i>
-                <span className="font-semibold text-black">Brand:</span> Lay's
-              </p>
-              <p className="text-gray-500 mb-2">
-                <i className="bi bi-check-circle text-prim mr-1"></i>
-                <span className="font-semibold text-black">FSA Eligible:</span> No
-              </p>
-              <p className="text-gray-500 mb-2">
-                <i className="bi bi-check-circle text-prim mr-1"></i>
-                <span className="font-semibold text-black">Size/Count:</span> 8.0oz
-              </p>
-              <p className="text-gray-500 mb-2">
-                <i className="bi bi-check-circle text-prim mr-1"></i>
-                <span className="font-semibold text-black">Item Code:</span> 425652
-              </p>
-              <p className="text-gray-500 mb-2">
-                <i className="bi bi-check-circle text-prim mr-1"></i>
-                <span className="font-semibold text-black">Ingredients:</span> Potatoes, Vegetable Oil, and Salt.
-              </p>
-            </div>
+            {product.specifications && <div>
+              {Object.entries(product.specifications).map(([key, value]) => (
+                <p key={key} className="text-gray-500 mb-2">
+                  <i className="bi bi-check-circle text-prim mr-1"></i>
+                  <span className="font-semibold text-black">{key}:</span> {value}
+                </p>
+              ))}
+            </div>}
           </div>
 
           

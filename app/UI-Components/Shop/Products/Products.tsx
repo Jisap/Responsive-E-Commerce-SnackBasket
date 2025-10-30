@@ -6,7 +6,6 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useCartActions } from "@/app/hooks/useCartActions";
-import { ProductType } from '../../../types/types';
 
 
 const Products = () => {

@@ -6,7 +6,30 @@
     "title": "Taylor Farms Broccoli fresh Fruits",
     "price": "$15.99",
     "lessprice": "$28.99",
-    "review": "(17k)"
+    "review": "(17k)",
+    "rating": 4.5,
+    "description": "A delightful mix of fresh broccoli and assorted fruits from Taylor Farms, perfect for a healthy snack or meal.",
+    "offer": "Featured Item: Special Price",
+    "brand": "Taylor Farms",
+    "features": [
+      "Fresh & healthy",
+      "Convenient snack",
+      "Rich in vitamins"
+    ],
+    "tags": ["Featured", "Healthy", "Produce"],
+    "specifications": {
+      "Product Type": "Mixed Produce",
+      "Brand": "Taylor Farms",
+      "Size": "300g",
+      "Availability": "Year-round"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-award",
+        "title": "Top Quality",
+        "description": "Selected for freshness and taste."
+      }
+    ]
   },
   {
     "Id": "Featured2",
@@ -40,7 +63,30 @@
     "title": "Taylor Farms Broccoli fresh Fruits",
     "price": "$15.99",
     "lessprice": "$28.99",
-    "review": "(17k)"
+    "review": "(17k)",
+    "rating": 4.8,
+    "description": "Our best-selling fresh broccoli and fruit mix from Taylor Farms. A customer favorite for its quality and convenience.",
+    "offer": "Top Seller: Limited Discount",
+    "brand": "Taylor Farms",
+    "features": [
+      "Customer favorite",
+      "High nutritional value",
+      "Perfect for any diet"
+    ],
+    "tags": ["Top Selling", "Popular", "Fresh"],
+    "specifications": {
+      "Product Type": "Premium Mixed Produce",
+      "Brand": "Taylor Farms",
+      "Size": "400g",
+      "Customer Rating": "Excellent"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-star-fill",
+        "title": "Highly Rated",
+        "description": "Loved by our customers."
+      }
+    ]
   },
   {
     "Id": "TopSelling2",
@@ -74,7 +120,30 @@
     "title": "Taylor Farms Broccoli fresh Fruits",
     "price": "$15.99",
     "lessprice": "$28.99",
-    "review": "(17k)"
+    "review": "(17k)",
+    "rating": 4.2,
+    "description": "Get this amazing deal on Taylor Farms broccoli and fresh fruits. A healthy choice at an unbeatable price.",
+    "offer": "Flash Sale: Don't Miss Out!",
+    "brand": "Taylor Farms",
+    "features": [
+      "Great value",
+      "Nutritious & tasty",
+      "Limited stock"
+    ],
+    "tags": ["On Sale", "Discount", "Healthy"],
+    "specifications": {
+      "Product Type": "Value Mixed Produce",
+      "Brand": "Taylor Farms",
+      "Size": "300g",
+      "Discount": "20% Off"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-tags",
+        "title": "Best Price",
+        "description": "Unbeatable value for fresh produce."
+      }
+    ]
   },
   {
     "Id": "OnSale2",
@@ -108,7 +177,30 @@
     "title": "Taylor Farms Broccoli fresh Fruits",
     "price": "$15.99",
     "lessprice": "$28.99",
-    "review": "(17k)"
+    "review": "(17k)",
+    "rating": 4.9,
+    "description": "Our highest-rated product! Fresh broccoli and fruits from Taylor Farms, praised by customers for exceptional quality.",
+    "offer": "Customer's Top Pick",
+    "brand": "Taylor Farms",
+    "features": [
+      "Exceptional quality",
+      "Highly recommended",
+      "Premium selection"
+    ],
+    "tags": ["Top Rated", "Premium", "Fresh"],
+    "specifications": {
+      "Product Type": "Premium Mixed Produce",
+      "Brand": "Taylor Farms",
+      "Size": "350g",
+      "Awards": "Best Fresh Produce 2023"
+    },
+    "benefits": [
+      {
+        "icon": "bi bi-trophy",
+        "title": "Award Winning",
+        "description": "Recognized for outstanding quality."
+      }
+    ]
   },
   {
     "Id": "TopRated2",
