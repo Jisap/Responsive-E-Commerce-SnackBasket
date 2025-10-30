@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
-type CartItem = {
-  Id: string;
-  title: string;
-  price: string;
-  review: string;
-  qty?: number;
-  image: string;
-};
+import { CartItem } from '../../../types/types';
 
 const Checkout = () => {
 
@@ -29,7 +21,7 @@ const Checkout = () => {
 
   const totalPrice = cartItems.reduce((acc, item) => {                              // Calculamos el subtotal del cart
     const price = parseFloat(item.price.replace("$", "")) || 0;                     // Si no hay precio, lo ponemos a 0
-    const quantity = item.qty ?? 1;                                                 // Si no hay qty, lo ponemos a 1
+    const quantity = item.quantity ?? 1;                                                 // Si no hay qty, lo ponemos a 1
     return acc + price * quantity;                                                  // Sumamos el precio multiplicado por el qty
   }, 0);
 
@@ -221,7 +213,7 @@ const Checkout = () => {
               ) : (
                 cartItems.map((item: CartItem) => {
                   const priceNum = parseFloat(item.price.replace("$", "")) || 0;
-                  const quantity = item.qty ?? 1;
+                  const quantity = item.quantity ?? 1;
                   return (
                     <div
                       key={item.Id}

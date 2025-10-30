@@ -4,9 +4,10 @@ import Image from "next/image"
 import { StaticImageData } from 'next/image';
 import Deals from "../../Index/Deals/Deals";
 import toast from "react-hot-toast";
-import { ProductType, useCartActions } from '../../../hooks/useCartActions';
+import { ProductType, CartItem } from '../../../types/types';
 import { useState } from "react";
 import satisfactionIcon from "@/public/satisfaction-icon.png";
+import { useCartActions } from '../../../hooks/useCartActions';
 
 interface ProductDetailsType {
   Id: string;
@@ -24,15 +25,6 @@ interface Props {
   products: ProductDetailsType[];
 
 }
-
-type CartItem = {
-  Id: string;
-  title: string;
-  price: string;
-  review: string;
-  qty?: number;
-  image: string;
-};
 
 const ProductDetails = ({ id, products }: Props) => {
 
@@ -154,7 +146,7 @@ const ProductDetails = ({ id, products }: Props) => {
                   {/* Action Buttons */}
                   <button
                     className="bg-prim text-white px-5 py-2 rounded-full cursor-pointer hover:bg-prim-dark transition-colors"
-                    onClick={() => handleAddToCart({ ...product, qty: quantity })}
+                    onClick={() => handleAddToCart({ ...product, quantity })}
                   >
                     <i className="bi bi-cart2 mr-2"></i> Add To Cart
                   </button>

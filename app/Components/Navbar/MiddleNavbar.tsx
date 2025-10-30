@@ -12,23 +12,8 @@ import ShortProducts from "@/app/JsonData/ShortProducts.json";
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import { CartItem, ProductType } from '../../types/types';
 
-type CartItem = {
-  Id: string | number;
-};
-
-interface ProductType {
-  Id: string;
-  image: string;
-  Name?: string;
-  title: string;
-  price: string;
-  lessprice: string;
-  review: string;
-  sold?: string;
-  Price?: string;
-  ProductImage?: string;
-}
 
 interface MiddleNavbarProps {
   isFixed: boolean;
