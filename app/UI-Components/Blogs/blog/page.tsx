@@ -1,19 +1,26 @@
 "use client"
 
+import { useState, useMemo } from "react";
 import blogData from "@/app/JsonData/Blogs.json";
 import Link from "next/link";
 
-const categories = [
-  "Fruits & Vegetables",
-  "Dairy & Bakery",
-  "Snacks & Beverages",
-  "Staples",
-  "Frozen & Packaged Food",
-  "Personal Care",
-  "Household Essentials",
-]
-
 const Blogs = () => {
+  // Generamos dinámicamente las categorías a partir de los blogs existentes.
+  // Usamos Set para obtener valores únicos y luego lo convertimos a un array.
+  const categories = useMemo(() => Array.from(new Set(blogData.map(blog => blog.tag))), []);
+  
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const filteredBlogs = useMemo(() => {
+    if (!selectedCategory) {
+      return blogData;
+    }
+    return blogData.filter((blog) => blog.tag === selectedCategory);
+  }, [selectedCategory]);
+
+  const handleCategoryClick = (category: string | null) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <>
@@ -35,8 +42,8 @@ const Blogs = () => {
       <div className="px-[8%] lg:px-[12%] py-5 mt-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-5">
           {/* Blog List */}
-          <div className="w-full lg:w-2/3 gap-5">
-            {blogData.map((blog, index) => (
+          <div className="w-full lg:w-2/3">
+            {filteredBlogs.map((blog) => (
               <Link 
                 key={blog.id} 
                 href={`/UI-Components/Blogs/blogDetails?id=${blog.id}`} 
@@ -81,7 +88,42 @@ const Blogs = () => {
           </div>
 
           {/* Sidebar */}
-          <div className="w-full lg:w-1/2 gap-5 sticky top-22 left-0 h-[100%]">
+          <div className="w-full lg:w-1/3 gap-5 sticky top-28 left-0 h-fit">
+            {/* Categories */}
+            <div className="border border-gray-300 rounded mb-8">
+              <div className="border-b border-gray-300 p-5">
+                <h2 className="Unbounded text-2xl">
+                  Categories
+                </h2>
+              </div>
+              <div className="p-5 flex flex-col items-start">
+                <button
+                  onClick={() => handleCategoryClick(null)}
+                  className={`w-full text-left p-2 rounded mb-2 transition-colors ${
+                    selectedCategory === null
+                      ? 'bg-prim text-white'
+                      : 'bg-gray-100 hover:bg-prim-light'
+                  }`}
+                >
+                  All Categories
+                </button>
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => handleCategoryClick(category)}
+                    className={`w-full text-left p-2 rounded mb-2 transition-colors ${
+                      selectedCategory === category
+                        ? 'bg-prim text-white'
+                        : 'bg-gray-100 hover:bg-prim-light'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Recent Post */}
             <div className="border border-gray-300 rounded">
               <div className="border-b border-gray-300 p-5">
                 <h2 className="Unbounded text-2xl">
