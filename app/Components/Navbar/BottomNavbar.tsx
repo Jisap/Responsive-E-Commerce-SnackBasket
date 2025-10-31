@@ -28,8 +28,8 @@ const navLinks: NavLink[] = [
     label: "Blog",
     href: "#",
     dropdown: [
-      { label: "Blog", href: "/UI-Components/Blogs" },
-      { label: "Blog Details", href: "" },
+      { label: "Blog", href: "/UI-Components/Blogs/blog" },
+      { label: "Blog Details", href: "/UI-Components/Blogs/blogDetails?id=1" }
     ]
   },
   { label: "Contact Us", href: "/UI-Components/Pages/contact" },
@@ -89,7 +89,7 @@ const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) 
                             key={item.label}
                             href={{
                               pathname: "/UI-Components/Shop",
-                              query: {}
+                              query: { id: "Featured-1" } // ID de ejemplo
                             }}
                             className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
                           >
@@ -100,8 +100,8 @@ const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) 
                             <Link
                               key={item.label}
                               href={{
-                                pathname: "/UI-Components/Shop",
-                                query: {}
+                                pathname: "/UI-Components/Blogs/blogDetails",
+                                query: { id: "1" } // ID de ejemplo
                               }}
                               className="block px-4 py-2 rounded-md hover:bg-prim-light transition-all"
                             >
@@ -244,7 +244,7 @@ const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) 
                             key={item.label}
                             href={{
                               pathname: "/UI-Components/Shop",
-                              query: {},
+                              query: { id: "Featured-1" }, // ID de ejemplo
                             }}
                             className="block px-4 py-2 rounded-md bg-white border border-prim-light hover:bg-gray-100 transition-all"
                           >
@@ -254,8 +254,8 @@ const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) 
                           <Link
                             key={item.label}
                             href={{
-                              pathname: "/UI-Components/Shop",
-                              query: {},
+                              pathname: "/UI-Components/Blogs/blogDetails",
+                              query: { id: "1" }, // ID de ejemplo
                             }}
                             className="block px-4 py-2 rounded-md bg-white border border-prim-light hover:bg-gray-100 transition-all"
                           >

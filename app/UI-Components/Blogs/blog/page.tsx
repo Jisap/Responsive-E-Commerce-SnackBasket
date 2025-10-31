@@ -1,8 +1,6 @@
 "use client"
 
 import blogData from "@/app/JsonData/Blogs.json";
-import { useState } from "react";
-import BlogDetails from "../blogDetails/page";
 import Link from "next/link";
 
 const categories = [
@@ -15,19 +13,7 @@ const categories = [
   "Household Essentials",
 ]
 
-
 const Blogs = () => {
-
-  const [selectedBlog, setSelectedBlog] = useState<Number | null>(null);
-
-  if(selectedBlog !== null){
-    return (
-      <BlogDetails 
-        blog={blogData[selectedBlog]} 
-        goBack={() => setSelectedBlog(null)}
-      />
-    )
-  }
 
   return (
     <>
@@ -49,48 +35,48 @@ const Blogs = () => {
       <div className="px-[8%] lg:px-[12%] py-5 mt-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-5">
           {/* Blog List */}
-          <div className="w-full lg:w-1/1 gap-5">
+          <div className="w-full lg:w-2/3 gap-5">
             {blogData.map((blog, index) => (
-              <div 
-                key={index} 
-                className="flex flex-col gap-5 mb-10 cursor-pointer"
-                onClick={() => setSelectedBlog(index)} 
+              <Link 
+                key={blog.id} 
+                href={`/UI-Components/Blogs/blogDetails?id=${blog.id}`} 
+                className="flex flex-col gap-5 mb-10 cursor-pointer group"
               >
-                <div className="blog-image overflow-hidden rounded-md">
-                  <img 
-                    src={blog.image} 
-                    alt={blog.title} 
-                    className="transition-transform duration-300 ease-in-out hover:scale-110"  
-                  />
- 
-                </div>
-
-                <div className="blog-content mt-3">
-                  <span className="bg-[#e6f9ef] p-3 shadow-md text-2xl Unbounded">
-                    {blog.tag}
-                  </span>
-
-                  <h2 className="text-4xl Unbounded mt-5 hover:text-prim hover:underline">
-                    {blog.title}
-                  </h2>
-
-                  <p className="mt-5 text-lg border-b pb-3 border-gray-400">
-                    {blog.pere}
-                  </p>
-
-                  <div className="flex mt-5 gap-5">
-                    <p className="text-gray-500">
-                      <i className="bi bi-calendar2-week text-prim pr-1"></i>
-                      {blog.date}
-                    </p>
-
-                    <p className="text-gray-500">
-                      <i className="bi bi-chat-text text-prim pr-1"></i>
-                      {blog.comment}
-                    </p>
+                  <div className="blog-image overflow-hidden rounded-md">
+                    <img 
+                      src={blog.image} 
+                      alt={blog.title} 
+                      className="transition-transform duration-300 ease-in-out group-hover:scale-110"  
+                    />
+  
                   </div>
-                </div>
-              </div>
+
+                  <div className="blog-content mt-3">
+                    <span className="bg-[#e6f9ef] p-3 shadow-md text-2xl Unbounded">
+                      {blog.tag}
+                    </span>
+
+                    <h2 className="text-4xl Unbounded mt-5 group-hover:text-prim group-hover:underline">
+                      {blog.title}
+                    </h2>
+
+                    <p className="mt-5 text-lg border-b pb-3 border-gray-400">
+                      {blog.pere}
+                    </p>
+
+                    <div className="flex mt-5 gap-5">
+                      <p className="text-gray-500">
+                        <i className="bi bi-calendar2-week text-prim pr-1"></i>
+                        {blog.date}
+                      </p>
+
+                      <p className="text-gray-500">
+                        <i className="bi bi-chat-text text-prim pr-1"></i>
+                        {blog.comment}
+                      </p>
+                    </div>
+                  </div>
+              </Link>
             ))}
           </div>
 
@@ -104,11 +90,11 @@ const Blogs = () => {
               </div>
 
               <div className="p-5">
-                {blogData.map((blog, index) => (
-                  <div 
-                    key={index} 
-                    className="flex justify-between items-center mb-5 gap-5 curosr-pointer"
-                    onClick={() => setSelectedBlog(index)}
+                {blogData.map((blog) => (
+                  <Link
+                    key={blog.id}
+                    href={`/UI-Components/Blogs/blogDetails?id=${blog.id}`}
+                    className="flex justify-between items-center mb-5 gap-5 cursor-pointer group"
                   >
                     <div className="w-1/2">
                       <img src={blog.image} alt={blog.title} />
@@ -116,7 +102,7 @@ const Blogs = () => {
 
                     <div className="w-1/2">
                       <div className="blog-content">
-                        <h2 className="Unbounded hover:text-prim hover:underline">
+                        <h2 className="Unbounded group-hover:text-prim group-hover:underline">
                           {blog.title} 
                         </h2>
 
@@ -128,7 +114,7 @@ const Blogs = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -139,4 +125,4 @@ const Blogs = () => {
   )
 }
 
-export default Blogs
+export default Blogs;

@@ -72,3 +72,15 @@ export type BannerType = {
   image: StaticImageData;
   heading: string;
 }
+
+export interface Blog {
+  id: number;
+  image: string;
+  title: string;
+  tag: string;
+  pere: string;
+  pere2: string;
+  pere3: string;
+  date: string;
+  comment: string;
+}
