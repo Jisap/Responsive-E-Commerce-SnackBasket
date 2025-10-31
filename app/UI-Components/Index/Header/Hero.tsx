@@ -19,9 +19,9 @@ const Hero = () => {
 
   useEffect(() => {
     if (swiper && !swiper.destroyed) {
-      // @ts-ignore
+      // @ts-expect-error: Swiper's navigation params are read-only, but we need to update them dynamically.
       swiper.params.navigation.prevEl = prevRef.current;
-      // @ts-ignore
+      // @ts-expect-error: Swiper's navigation params are read-only, but we need to update them dynamically.
       swiper.params.navigation.nextEl = nextRef.current;
       swiper.navigation.init();
       swiper.navigation.update();

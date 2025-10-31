@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ProductType, CartItem } from '@/app/types/types';
+import { ProductType } from '@/app/types/types';
 import { useState } from "react";
 import satisfactionIcon from "@/public/satisfaction-icon.png";
 import { useCartActions } from '../../../hooks/useCartActions';
@@ -63,7 +63,6 @@ const defaultBenefits = [
 const ProductDetails = ({ id, products }: Props) => {
 
   const { handleAddToCart, handleAddToWishlist } = useCartActions();
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
@@ -87,10 +86,12 @@ const ProductDetails = ({ id, products }: Props) => {
               key={product.Id}
               className="border p-4 rounded-md"
             >
-              <img
-                src={product.image}
+              <Image 
+                src={product.image || ""}
                 alt={product.title}
                 className="w-full h-48 object-cover"
+                width={200}
+                height={192}
               />
 
               <h2 className="font-bold mt-2">{product.title}</h2>
@@ -107,9 +108,7 @@ const ProductDetails = ({ id, products }: Props) => {
 
   const product = products.find((item) => String(item.Id) === String(id)); // Buscamos el producto con el ID especificado
 
-  if (!product) return <p>Product Not Found</p>
-
-  const relatedProducts = products.filter((item) => item.Id !== product.Id); // Buscamos los productos relacionados con el producto buscado
+  if (!product) return <p>Product Not Found</p>;
 
 
   return (
@@ -124,8 +123,8 @@ const ProductDetails = ({ id, products }: Props) => {
             {/* Image (izquierda)*/}
             <div className="w-full md:w-1/2 border border-gray-300 rounded-2xl flex-shrink-0">
               <Image
-                src={product.image}
-                alt={product.title}
+                src={product.image || ""}
+                alt={product.title || ""}
                 width={400}
                 height={400}
                 className="object-contain w-full h-auto p-4 sm:p-8 md:p-10 lg:p-12"

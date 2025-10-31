@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import allProductsData from "@/app/JsonData/BestDeals.json";
 import Arrivals from "@/app/JsonData/NewArrivals.json";
 import BestDeals from "@/app/JsonData/BestDeals.json";
 import BestSales from "@/app/JsonData/BestSales.json";
@@ -12,7 +11,7 @@ import ShortProducts from "@/app/JsonData/ShortProducts.json";
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { CartItem, ProductType } from '../../types/types';
+import { ProductType } from '../../types/types';
 
 
 interface MiddleNavbarProps {
@@ -20,21 +19,37 @@ interface MiddleNavbarProps {
   cartCount: number;
   wishlistCount: number;
 }
+type RawProduct = Partial<ProductType> & {
+  Name?: string;
+  ProductImage?: string;
+  Price?: string;
+};
 
 const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) => {
   const [searchTerm, setSearchTerm] = useState("");                    // Término de búsqueda
   const [result, setResult] = useState<ProductType[]>([]);             // Resultados de la búsqueda
+  
   const allProduct: ProductType[] = useMemo(() => {
+    const normalizeProduct = (p: RawProduct): ProductType => ({
+      ...p,
+      Id: p.Id || `generated-${Math.random()}`, // Aseguramos que Id siempre sea un string
+      title: p.title || p.Name || "",
+      image: p.image || p.ProductImage || "",
+      price: p.price || p.Price || "0.00",
+      lessprice: p.lessprice || "0.00",
+      review: p.review || "(0)",
+    });
+
     const combinedProducts = [
-      ...Arrivals,
-      ...BestDeals,
-      ...BestSales,
-      ...OrganicFood,
-      ...Recommend,
-      ...(ShortProducts?.Featured?.map(p => ({...p, Id: `Featured-${p.Id}`})) || []),
-      ...(ShortProducts?.TopSelling?.map(p => ({...p, Id: `TopSelling-${p.Id}`})) || []),
-      ...(ShortProducts?.OnSale?.map(p => ({...p, Id: `OnSale-${p.Id}`})) || []),
-      ...(ShortProducts?.TopRated?.map(p => ({...p, Id: `TopRated-${p.Id}`})) || []),
+      ...Arrivals.map(normalizeProduct),
+      ...BestDeals.map(normalizeProduct),
+      ...BestSales.map(normalizeProduct),
+      ...OrganicFood.map(normalizeProduct),
+      ...Recommend.map(normalizeProduct),
+      ...(ShortProducts?.Featured?.map(p => normalizeProduct({...p, Id: `Featured-${p.Id}`})) || []),
+      ...(ShortProducts?.TopSelling?.map(p => normalizeProduct({...p, Id: `TopSelling-${p.Id}`})) || []),
+      ...(ShortProducts?.OnSale?.map(p => normalizeProduct({...p, Id: `OnSale-${p.Id}`})) || []),
+      ...(ShortProducts?.TopRated?.map(p => normalizeProduct({...p, Id: `TopRated-${p.Id}`})) || []),
     ];
 
     // Eliminar duplicados basados en el 'Id' del producto
@@ -51,8 +66,8 @@ const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) 
       setResult([]);
       return;
     }
-    const filters = allProduct.filter((p) =>                            // Filtrar los productos que coincidan con el término de búsqueda
-      (p.Name || p.title || "").toLowerCase().includes(searchTerm.toLowerCase())
+    const filters = allProduct.filter((p) =>
+      p.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     setResult(filters);                                                 // Actualizar los resultados
@@ -100,17 +115,17 @@ const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) 
                     <Image
                       width={200}
                       height={200}
-                      src={product.ProductImage || product.image}
-                      alt={product.Name || product.title}
+                      src={product.image}
+                      alt={product.title}
                       className="w-full  object-cover rounded "
                     />
 
                     <h3 className="text-sm font-semibold text-center mt-2">
-                      {product.Name || product.title}
+                      {product.title}
                     </h3>
                     
                     <p className="text-xs text-gray-500 mt-1">
-                      ${product.Price || product.price}
+                      ${product.price}
                     </p>
                   </div>
                 </Link>
@@ -139,7 +154,7 @@ const MiddleNavbar = ({ isFixed, cartCount, wishlistCount }: MiddleNavbarProps) 
         {/* Whislist & Cart  */}
         <div className="hidden lg:flex items-center space-x-6">
           {/* Whislist */}
-          <Link href="/UI-Components/Pages/wishlist" className="relative">
+          <Link href="/UI-Components/Pages/whishlist" className="relative">
             <i className="bi bi-heart text-gray-600 text-xl hover:text-prim transition-all"></i>
             {wishlistCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-prim text-white w-5 h-5 flex items-center justify-center rounded-full text-xs">

@@ -19,7 +19,7 @@ const navLinks: NavLink[] = [
     href: "#",
     dropdown: [
       { label: "Cart", href: "/UI-Components/Pages/cart" },
-      { label: "Whislist", href: "/UI-Components/Pages/whishlist" },
+      { label: "Wishlist", href: "/UI-Components/Pages/whishlist" },
       { label: "Checkout", href: "/UI-Components/Pages/checkout" },
       { label: "Account", href: "/UI-Components/Pages/account" },
     ]
@@ -139,7 +139,7 @@ const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) 
         {/* Mobile Nav header */}
         <div className="lg:hidden flex items-center justify-between gap-4 w-full">
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={()=>setMobileMenuOpen(!mobileMenuOpen)}
             className="text-2xl focus:outline-none"
           >
             <div className="flex items-center gap-x-5">
@@ -149,7 +149,7 @@ const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) 
 
           <div className="flex lg:hidden items-center gap-x-6">
             {/* Whislist */}
-            <Link href="/UI-Components/Pages/whislist" className="relative">
+            <Link href="/UI-Components/Pages/whishlist" className="relative">
               <i className="bi bi-heart text-gray-600 text-xl hover:text-prim transition-all"></i>
               {wishlistCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-prim text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
@@ -183,7 +183,7 @@ const BottomNavbar = ({ isFixed, cartCount, wishlistCount }: BottomNavbarProps) 
       >
         {/* Wishlist */}
         <Link
-          href="/UI-Components/Pages/whislist"
+          href="/UI-Components/Pages/whishlist"
           className="relative bg-white p-3 rounded-full shadow-lg hover:bg-prim group"
         >
           <i className="bi bi-heart text-gray-600 text-lg group-hover:text-white transition-all"></i>

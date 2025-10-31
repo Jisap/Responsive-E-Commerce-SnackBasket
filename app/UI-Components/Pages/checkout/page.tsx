@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -221,11 +222,12 @@ const Checkout = () => {
                     >
                       {/* Image and Info */}
                       <div className="flex items-center">
-                        <img
+                        <Image
                           src={item.image}
                           alt={item.title}
                           className="w-16 h-16 object-cover"
-                        />
+                          width={64}
+                          height={64} />
                         <div className="ml-3">
                           <p className="Unbounded font-semibold">
                             {item.title}

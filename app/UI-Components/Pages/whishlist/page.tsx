@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -95,11 +96,12 @@ const Wishlist = () => {
                     {wishlistItems.map((product) => (
                       <tr key={product.Id} className="border-b border-gray-300">
                         <td className="px-4 py-3 flex items-center gap-1  border-r border-gray-300">
-                          <img
-                            src={product.image}
-                            alt={product.title}
+                          <Image
+                            src={product.image || ""}
+                            alt={product.title || ""}
                             className="w-16 h-16 object-contain rounded"
-                          />
+                            width={64}
+                            height={64} />
                           <div className="flex flex-col">
                             <p className="font-medium Unbounded text-sm">
                               {product.title}
@@ -118,7 +120,7 @@ const Wishlist = () => {
                         <td className="px-4 py-2 border-r Unbounded border-gray-300">
                           $
                           {parseFloat(
-                            product.price.replace(/[^0-9.-]+/g, "")
+                            (product.price || "0").replace(/[^0-9.-]+/g, "")
                           ).toFixed(2)}
                         </td>
 
@@ -156,11 +158,12 @@ const Wishlist = () => {
                       className="border border-gray-300 rounded p-4 flex flex-col gap-2"
                     >
                       <div className="flex items-center gap-4">
-                        <img
-                          src={product.image}
-                          alt={product.title}
+                        <Image
+                          src={product.image || ""}
+                          alt={product.title || ""}
                           className="w-20 h-20 object-contain rounded"
-                        />
+                          width={80}
+                          height={80} />
 
                         <div className="flex flex-col">
                           <p className="font-medium Unbounded text-base">
@@ -172,9 +175,7 @@ const Wishlist = () => {
                           <p className="text-sm font-semibold Unbounded">
                             {" "}
                             $
-                            {parseFloat(
-                              product.price.replace(/[^0-9.-]+/g, "")
-                            ).toFixed(2)}
+                            {parseFloat((product.price || "0").replace(/[^0-9.-]+/g, "")).toFixed(2)}
                           </p>
                         </div>
                       </div>

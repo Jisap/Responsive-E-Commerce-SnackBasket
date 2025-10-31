@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import promotionBanner1 from "@/public/promotional-banner-img1.png"
 import promotionBanner2 from "@/public/promotional-banner-img2.png"
 import promotionBanner3 from "@/public/promotional-banner-img3.png"

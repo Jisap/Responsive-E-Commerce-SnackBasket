@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import blogData from "@/app/JsonData/Blogs.json";
+import Image from "next/image";
 import Link from "next/link";
 
 const Blogs = () => {
@@ -49,11 +50,13 @@ const Blogs = () => {
                 href={`/UI-Components/Blogs/blogDetails?id=${blog.id}`} 
                 className="flex flex-col gap-5 mb-10 cursor-pointer group"
               >
-                  <div className="blog-image overflow-hidden rounded-md">
-                    <img 
+                  <div className="blog-image overflow-hidden rounded-md relative h-96">
+                    <Image 
                       src={blog.image} 
                       alt={blog.title} 
-                      className="transition-transform duration-300 ease-in-out group-hover:scale-110"  
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="transition-transform duration-300 ease-in-out group-hover:scale-110 object-contain"  
                     />
   
                   </div>
@@ -138,8 +141,12 @@ const Blogs = () => {
                     href={`/UI-Components/Blogs/blogDetails?id=${blog.id}`}
                     className="flex justify-between items-center mb-5 gap-5 cursor-pointer group"
                   >
-                    <div className="w-1/2">
-                      <img src={blog.image} alt={blog.title} />
+                    <div className="w-1/2 relative h-24">
+                      <Image 
+                        src={blog.image} 
+                        alt={blog.title} 
+                        fill
+                        className="object-cover rounded-md" />
                     </div>
 
                     <div className="w-1/2">

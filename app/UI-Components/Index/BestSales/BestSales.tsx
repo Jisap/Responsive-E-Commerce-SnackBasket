@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import bestSales from "@/app/JsonData/BestSales.json";
 import bestSaleBanner from "@/public/BestSales/special-snacks-img.png"
 import { useCartActions } from "@/app/hooks/useCartActions";
-import { ProductType } from '../../../types/types';
 
 
 const BestSales = () => {
@@ -15,7 +13,7 @@ const BestSales = () => {
   return (
     <div className="px-[8%] lg:px-[12%] py-10">
       <div className="title my-10 w-full flex flex-col lg:flex-eow justify-between items-start gap-5">
-        <h1 className="text-4xl md:text-5xl Unbounded">Today's Best Sales.</h1>
+        <h1 className="text-4xl md:text-5xl Unbounded">Today&apos;s Best Sales.</h1>
       </div>
 
       <div className="flex flex-col lg:flex-row items-start gap-5">

@@ -2,8 +2,6 @@
 
 import Image from "next/image"
 import  products from "@/app/JsonData/Recommend.json";
-import Link from "next/link";
-import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useCartActions } from "@/app/hooks/useCartActions";
 
@@ -106,7 +104,7 @@ const Products = () => {
                     <input
                       type="checkbox"
                       checked={discount30}
-                      onChange={(e) => setDiscount50(e.target.checked)}
+                      onChange={(e) => setDiscount30(e.target.checked)}
                       className="form-checkbox accent-prim"
                     />
 
@@ -142,8 +140,8 @@ const Products = () => {
                 >
                   <div className="relative flex justify-center items-center w-full h-50">
                     <Image
-                      src={randomProduct.image}
-                      alt={randomProduct.title}
+                      src={randomProduct.image || ""}
+                      alt={randomProduct.title || ""}
                       width={180}
                       height={180}
                       className="object-contain mt-10"
@@ -173,11 +171,11 @@ const Products = () => {
                   </div>
 
                   {/* Product info */}
-                  <Link
+                  <a
                     href={{
                       pathname: "/UI-Components/Shop",
                       query: { id: randomProduct.Id },
-                    }}
+                    }.pathname + `?id=${randomProduct.Id}`}
                   >
                     <div className="space-y-1 mt-5  product-info h-[200px]">
                       <div className="flex items-center gap-2">
@@ -208,7 +206,7 @@ const Products = () => {
                         Sold: {randomProduct.sold}
                       </p>
                     </div>
-                  </Link>
+                  </a>
 
                   <button
                   onClick={() => handleAddToCart(randomProduct)}
@@ -231,8 +229,8 @@ const Products = () => {
                 >
                   <div className="relative flex justify-center items-center w-full h-50">
                     <Image
-                      src={product.image}
-                      alt={product.title}
+                      src={product.image || ""}
+                      alt={product.title || ""}
                       width={180}
                       height={180}
                       className="object-contain mt-10"
@@ -262,11 +260,11 @@ const Products = () => {
                   </div>
 
                   {/* Product info */}
-                  <Link
+                  <a
                     href={{
                       pathname: "/UI-Components/Shop",
                       query: { id: product.Id },
-                    }}
+                    }.pathname + `?id=${product.Id}`}
                   >
                     <div className="space-y-1 mt-5  product-info h-[200px]">
                       <div className="flex items-center gap-2">
@@ -297,7 +295,7 @@ const Products = () => {
                         Sold: {product.sold}
                       </p>
                     </div>
-                  </Link>
+                  </a>
 
                   <button
                     onClick={() => handleAddToCart(product)}

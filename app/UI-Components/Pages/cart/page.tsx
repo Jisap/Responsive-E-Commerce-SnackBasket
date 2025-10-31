@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -21,7 +22,7 @@ const Cart = () => {
 
         const total = cart.reduce((acc: number, item: CartItem) => {                  // Calculamos el subtotal
           const quantity = item.quantity ?? 1;                                        // Si no hay qty, lo ponemos a 1
-          const priceNum = parseFloat(item.price.replace(/[^0-9.]+/g, "")) || 0;      // Si no hay precio, lo ponemos a 0
+          const priceNum = parseFloat((item.price || "0").replace(/[^0-9.]+/g, "")) || 0; // Si no hay precio, lo ponemos a 0
           return acc + priceNum * quantity;                                           // Sumamos el precio multiplicado por el qty
         }, 0);
 
@@ -99,7 +100,7 @@ const Cart = () => {
                     <tbody>
                       {cartItems.map((item) => {   
                         const quantity = item.quantity ?? 1;
-                        const priceNum = parseFloat(item.price.replace(/[^0-9.]+/g, "")) || 0;
+                        const priceNum = parseFloat((item.price || "0").replace(/[^0-9.]+/g, "")) || 0;
                         const itemSubTotal = priceNum * quantity;
 
                         return (
@@ -108,16 +109,17 @@ const Cart = () => {
                             className="border-b border-gray-300 hover:bg-gray-100"
                           >
                             <td className="px-4 py-3 flex items-center gap-2">
-                              <img
-                                src={item.image}
-                                alt={item.title}
+                              <Image
+                                src={item.image || ""}
+                                alt={item.title || ""}
                                 className="w-16 h-16 object-contain rounded"
-                              />
+                                width={64}
+                                height={64} />
                               <span>{item.title}</span>
                             </td>
 
                             <td className="px-4 py-3">{item.price}</td>
-
+                            <td className="px-4 py-3">${priceNum.toFixed(2)}</td>
                             <td className="px-4 py-3">
                               <input
                                 type="number"
@@ -195,7 +197,7 @@ const Cart = () => {
               <div className="grid grid-cols-1 gap-4 md:hidden">
                 {cartItems.map((item) => {
                   const quantity = item.quantity ?? 1; // El cart acepta tanto el atributo 'qty' como 'quantity'
-                  const priceNum = parseFloat(item.price.replace(/[^0-9.]+/g, "")) || 0;
+                  const priceNum = parseFloat((item.price || "0").replace(/[^0-9.]+/g, "")) || 0;
                   const itemSubTotal = priceNum * quantity;
 
                   return (
@@ -204,15 +206,16 @@ const Cart = () => {
                       className="border p-4 rounded flex flex-col gap-2"
                     >
                       <div className="flex items-center gap-4">
-                        <img
-                          src={item.image}
-                          alt={item.title}
+                        <Image
+                          src={item.image || ""}
+                          alt={item.title || ""}
                           className="w-20 h-20 object-contain rounded"
-                        />
+                          width={80}
+                          height={80} />
                         <div className="flex flex-col flex-1">
                           <p className="font-medium">{item.title}</p>
                           <p className="text-sm text-gray-500">{item.review}</p>
-                          <p className="font-semibold">{item.price}</p>
+                          <p className="font-semibold">${priceNum.toFixed(2)}</p>
                         </div>
                       </div>
 
