@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import Benefits from '../../Index/Benefits/Benefits'
 
 const Account = () => {
   return (
@@ -51,7 +52,7 @@ const Account = () => {
 
                 <div className='flex'>
                   <label className='flex items-center text-xl cursor-pointer'>
-                    <input type="checkbox" className='w-5 h-5 mr-2' />
+                    <input type="checkbox" className='text-gray-600 w-5 h-5 mr-2' />
                     Remember Me
                   </label>
                 </div>
@@ -92,7 +93,7 @@ const Account = () => {
               </div>
 
               <div className='flex flex-col gap-5 mb-8'>
-                  <p>
+                  <p className='text-gray-600 text-md mb-5'>
                     Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#" className='text-prim hover:underline'>Privacy Policy</a>.
                   </p>
                 
@@ -105,6 +106,8 @@ const Account = () => {
           </div>
         </div>
       </div>
+
+      <Benefits />
     </>
   )
 }
