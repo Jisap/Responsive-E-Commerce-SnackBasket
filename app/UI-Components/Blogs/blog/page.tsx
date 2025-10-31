@@ -102,6 +102,35 @@ const Blogs = () => {
                   Recent Post
                 </h2>
               </div>
+
+              <div className="p-5">
+                {blogData.map((blog, index) => (
+                  <div 
+                    key={index} 
+                    className="flex justify-between items-center mb-5 gap-5 curosr-pointer"
+                    onClick={() => setSelectedBlog(index)}
+                  >
+                    <div className="w-1/2">
+                      <img src={blog.image} alt={blog.title} />
+                    </div>
+
+                    <div className="w-1/2">
+                      <div className="blog-content">
+                        <h2 className="Unbounded hover:text-prim hover:underline">
+                          {blog.title} 
+                        </h2>
+
+                        <div className="flex gap-5 mt-2">
+                          <p className="text-gray-500">
+                            <i className="bi bi-calendar2-week text-prim pr-1"></i>
+                            {blog.date}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
